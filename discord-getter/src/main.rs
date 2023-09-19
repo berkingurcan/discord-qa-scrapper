@@ -7,6 +7,8 @@ use serenity::model::channel::Message;
 use serenity::model::gateway::Ready;
 use serenity::framework::standard::macros::{command, group};
 use serenity::framework::standard::{StandardFramework, CommandResult};
+use serenity::model::id::{ChannelId, MessageId};
+
 
 #[group]
 #[commands(ping)]
@@ -23,11 +25,12 @@ impl EventHandler for Handler {
     // events can be dispatched simultaneously.
 
     async fn message(&self, ctx: Context, msg: Message) {
-        if msg.content == "!ping" {
-            if let Err(why) = msg.channel_id.say(&ctx.http, "Pong!").await {
-                println!("Error sending message: {:?}", why)
-            }
-        }
+        let channel_id = ChannelId(1153348653122076676);
+        let messages = channel_id
+        .messages(&ctx, |retriever| retriever.after(MessageId(1153348794981822544)).limit(100))
+        .await;
+
+        println!("{:?}", messages);
     }
 
     // Set a handler to be called on the `ready` event. This is called when a

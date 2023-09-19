@@ -16,6 +16,7 @@ struct General;
 
 struct Handler;
 
+
 #[async_trait]
 impl EventHandler for Handler {
     // Set a handler for the `message` event - so that whenever a new message
@@ -24,13 +25,29 @@ impl EventHandler for Handler {
     // Event handlers are dispatched through a threadpool, and so multiple
     // events can be dispatched simultaneously.
 
-    async fn message(&self, ctx: Context, msg: Message) {
+    async fn message(&self, ctx: Context, _msg: Message) {
         let channel_id = ChannelId(1153348653122076676);
-        let messages = channel_id
+        let _messages = channel_id
         .messages(&ctx, |retriever| retriever.after(MessageId(1153348794981822544)).limit(100))
         .await;
 
-        println!("{:?}", messages);
+        let extracted_data: Result<Vec<_>, _> = _messages.map(|messages| {
+            messages.iter().map(|message| {
+                (
+                    message.id,
+                    message.channel_id,
+                    message.author.name.clone(), // Cloning the name for simplicity
+                    message.content.clone(), // Cloning the content for simplicity
+                    message.timestamp,
+                    message.mentions.clone(),
+                    message.reactions.clone(), // Cloning the reactions for simplicity
+                    message.referenced_message.clone(), // Cloning the referenced_message for simplicity
+                    message.member.clone(),
+                )
+            }).collect()
+        });
+
+        println!("{:?}", extracted_data);
     }
 
     // Set a handler to be called on the `ready` event. This is called when a

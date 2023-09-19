@@ -39,7 +39,7 @@ impl EventHandler for Handler {
                     message.author.name.clone(), // Cloning the name for simplicity
                     message.content.clone(), // Cloning the content for simplicity
                     message.timestamp,
-                    message.mentions.clone(),
+                    message.mentions.iter().map(|user| (user.id, user.name.clone())).collect::<Vec<_>>(),
                     message.reactions.clone(), // Cloning the reactions for simplicity
                     message.referenced_message.clone(), // Cloning the referenced_message for simplicity
                     message.member.clone(),

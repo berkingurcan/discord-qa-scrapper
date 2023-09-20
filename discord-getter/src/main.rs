@@ -28,7 +28,7 @@ impl EventHandler for Handler {
     async fn message(&self, ctx: Context, _msg: Message) {
         let channel_id = ChannelId(1153348653122076676);
         let _messages = channel_id
-        .messages(&ctx, |retriever| retriever.after(MessageId(1153348794981822544)).limit(100))
+        .messages(&ctx, |retriever| retriever.after(MessageId(1153348746881540206)).limit(100))
         .await;
 
         let extracted_data: Result<Vec<_>, _> = _messages.map(|messages| {

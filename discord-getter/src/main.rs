@@ -9,6 +9,9 @@ use serenity::framework::standard::macros::{command, group};
 use serenity::framework::standard::{StandardFramework, CommandResult};
 use serenity::model::id::{ChannelId, MessageId};
 
+use csv::Writer;
+use std::error::Error;
+
 
 #[group]
 #[commands(ping)]
@@ -40,7 +43,7 @@ impl EventHandler for Handler {
                     message.content.clone(),
                     message.timestamp,
                     message.mentions.iter().map(|user| (user.id, user.name.clone())).collect::<Vec<_>>(),
-                    message.reactions.clone(),
+                    message.reactions.iter().map(|reaction| (reaction.count, reaction.reaction_type)).collect::<Vec<_>>(),
                     message.referenced_message.as_ref().map(|referenced_message| {
                         (referenced_message.id, referenced_message.content.clone())
                     }),
@@ -49,7 +52,35 @@ impl EventHandler for Handler {
             }).collect()
         });
 
-        println!("{:?}", extracted_data);
+        let mut unwrapped_extracted_data = extracted_data.unwrap();
+
+        let mut writer = Writer::from_path("output.csv").unwrap();
+
+        for data in unwrapped_extracted_data {
+            writer.write_record(&[
+                data.0.to_string(),
+                data.1.to_string(),
+                data.3.to_string(),
+                data.4.to_string(),
+                data.5.iter()
+                    .map(|(id, name)| format!("{}: {}", id, name))
+                    .collect::<Vec<_>>()
+                    .join(",")
+                    .to_string(),
+                data.6.iter()
+                    .map(|(count, reaction_type)| format!("{}, {}", count, reaction_type))
+                    .collect::<Vec<_>>()
+                    .join(",")
+                    .to_string(),
+                data.7.iter()
+                    .map(|(id, content)| format!("{}: {}", id, content))
+                    .collect::<Vec<_>>()
+                    .join(",")
+                    .to_string(),
+                data.8.to_string(),
+            ]);
+        }
+
     }
 
     // Set a handler to be called on the `ready` event. This is called when a

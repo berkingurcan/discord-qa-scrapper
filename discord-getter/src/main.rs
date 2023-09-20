@@ -43,7 +43,7 @@ impl EventHandler for Handler {
                     message.content.clone(),
                     message.timestamp,
                     message.mentions.iter().map(|user| (user.id, user.name.clone())).collect::<Vec<_>>(),
-                    message.reactions.iter().map(|reaction| (reaction.count, reaction.reaction_type)).collect::<Vec<_>>(),
+                    message.reactions.iter().map(|reaction| (reaction.count, reaction.reaction_type.clone())).collect::<Vec<_>>(),
                     message.referenced_message.as_ref().map(|referenced_message| {
                         (referenced_message.id, referenced_message.content.clone())
                     }),
@@ -77,7 +77,6 @@ impl EventHandler for Handler {
                     .collect::<Vec<_>>()
                     .join(",")
                     .to_string(),
-                data.8.to_string(),
             ]);
         }
 

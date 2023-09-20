@@ -41,7 +41,9 @@ impl EventHandler for Handler {
                     message.timestamp,
                     message.mentions.iter().map(|user| (user.id, user.name.clone())).collect::<Vec<_>>(),
                     message.reactions.clone(),
-                    message.referenced_message.clone(),
+                    message.referenced_message.as_ref().map(|referenced_message| {
+                        (referenced_message.id, referenced_message.content.clone())
+                    }),
                     message.member.clone(),
                 )
             }).collect()

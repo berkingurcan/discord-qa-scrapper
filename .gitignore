@@ -16,3 +16,4 @@ Cargo.lock
 
 output.csv
 *.csv
+discord-getter/output.csv

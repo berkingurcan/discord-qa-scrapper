@@ -1,51 +1,54 @@
-1154027652190044160,1153348653122076676,yaz bakalım,2023-09-20T12:13:53.079Z,,,
-1154022631041945610,1153348653122076676,kerek,2023-09-20T11:53:55.944Z,,,
-1154015441048580156,1153348653122076676,şikago,2023-09-20T11:25:21.716Z,,,
-1154015324061044826,1153348653122076676,qoqo,2023-09-20T11:24:53.824Z,,,
-1154014233843994715,1153348653122076676,zikko,2023-09-20T11:20:33.896Z,,,
-1154013449035194400,1153348653122076676,zıtıt,2023-09-20T11:17:26.783Z,,,
-1154013414419603486,1153348653122076676,zıt,2023-09-20T11:17:18.530Z,,,
-1153993853691502654,1153348653122076676,"Ok([(MessageId(1153993564632662016), ChannelId(1153348653122076676), ""berkingurcan"", ""id: bilmem ne, content: \""sex\"" gibi"", Timestamp(2023-09-20T09:58:25.972Z), [], [], None, None), (MessageId(1153993472676724798), ChannelId(1153348653122076676), ""ceneksanzak"", ""Nasi"", Timestamp(2023-09-20T09:58:04.048Z), [(UserId(843590451348111420), ""berkingurcan"")], [], Some((MessageId(1153993054068416543), ""hashmap gibi"")), None), (MessageId(1153993330456281149), ChannelId(1153348653122076676), ""berkingurcan"", ""çine bedel kırkımız"", Timestamp(2023-09-20T09:57:30.140Z), [(UserId(388033380903682058), ""ceneksanzak"")], [], Some((MessageId(1153992142381924352), ""Yaşasın ırkımız"")), None), (MessageId(1153993054068416543), ChannelId(1153348653122076676), ""berkingurcan"", ""hashmap gibi"", Timestamp(2023-09-20T09:56:24.244Z), [], [], None, None), (MessageId(1153993031771508838), ChannelId(1153348653122076676), ""berkingurcan"", ""bunu fieldlerin adıyla mı şaapsam"", Timestamp(2023-09-20T09:56:18.928Z), [], [], None, None),",2023-09-20T09:59:34.889Z,,,
-1153993564632662016,1153348653122076676,"id: bilmem ne, content: ""sex"" gibi",2023-09-20T09:58:25.972Z,,,
-1153993472676724798,1153348653122076676,Nasi,2023-09-20T09:58:04.048Z,843590451348111420: berkingurcan,,1153993054068416543: hashmap gibi
-1153993330456281149,1153348653122076676,çine bedel kırkımız,2023-09-20T09:57:30.140Z,388033380903682058: ceneksanzak,,1153992142381924352: Yaşasın ırkımız
-1153993054068416543,1153348653122076676,hashmap gibi,2023-09-20T09:56:24.244Z,,,
-1153993031771508838,1153348653122076676,bunu fieldlerin adıyla mı şaapsam,2023-09-20T09:56:18.928Z,,,
-1153992178322898984,1153348653122076676,"```Ok([(MessageId(1153992142381924352), ChannelId(1153348653122076676), ""ceneksanzak"", ""Yaşasın ırkımız"", Timestamp(2023-09-20T09:52:46.881Z), [], [], None, None), (MessageId(1153992140213460992), ChannelId(1153348653122076676), ""berkingurcan"", ""KAŞARLIK ÜÇÜNCÜ"", Timestamp(2023-09-20T09:52:46.364Z), [], [], None, None), (MessageId(1153992093350498364), ChannelId(1153348653122076676), ""berkingurcan"", ""SECONT EHEHEHHEIOLKŞM"", Timestamp(2023-09-20T09:52:35.191Z), [], [], None, None), (MessageId(1153992077814800415), ChannelId(1153348653122076676), ""berkingurcan"", ""FIRST MESSAGE eheh"", Timestamp(2023-09-20T09:52:31.487Z), [], [], None, None), (MessageId(1153991989788934256), ChannelId(1153348653122076676), ""berkingurcan"", ""pompa"", Timestamp(2023-09-20T09:52:10.500Z), [], [], None, None)])````",2023-09-20T09:52:55.450Z,,,
-1153992142381924352,1153348653122076676,Yaşasın ırkımız,2023-09-20T09:52:46.881Z,,,
-1153992140213460992,1153348653122076676,KAŞARLIK ÜÇÜNCÜ,2023-09-20T09:52:46.364Z,,,
-1153992093350498364,1153348653122076676,SECONT EHEHEHHEIOLKŞM,2023-09-20T09:52:35.191Z,,,
-1153992077814800415,1153348653122076676,FIRST MESSAGE eheh,2023-09-20T09:52:31.487Z,,,
-1153991989788934256,1153348653122076676,pompa,2023-09-20T09:52:10.500Z,,,
-1153991864840618014,1153348653122076676,"```
+1154289701327478815,1153348653122076676,berkingurcan,yemek lazım prizola emile zola,2023-09-21T05:35:10.462Z,388033380903682058: ceneksanzak,,1154054394799738971: Ya yağlı yedin dilin gayayi ya da mermiden hızlı goşaysın,
+1154054394799738971,1153348653122076676,ceneksanzak,Ya yağlı yedin dilin gayayi ya da mermiden hızlı goşaysın,2023-09-20T14:00:09.014Z,,,,
+1154054335634866216,1153348653122076676,ceneksanzak,Anlama anlaysin da gavrama gavramaysin,2023-09-20T13:59:54.908Z,843590451348111420: berkingurcan,,1154027652190044160: yaz bakalım,
+1154027652190044160,1153348653122076676,berkingurcan,yaz bakalım,2023-09-20T12:13:53.079Z,,,,
+1154022631041945610,1153348653122076676,berkingurcan,kerek,2023-09-20T11:53:55.944Z,,,,
+1154015441048580156,1153348653122076676,berkingurcan,şikago,2023-09-20T11:25:21.716Z,,,,
+1154015324061044826,1153348653122076676,berkingurcan,qoqo,2023-09-20T11:24:53.824Z,,,,
+1154014233843994715,1153348653122076676,berkingurcan,zikko,2023-09-20T11:20:33.896Z,,,,
+1154013449035194400,1153348653122076676,berkingurcan,zıtıt,2023-09-20T11:17:26.783Z,,,,
+1154013414419603486,1153348653122076676,berkingurcan,zıt,2023-09-20T11:17:18.530Z,,,,
+1153993853691502654,1153348653122076676,berkingurcan,"Ok([(MessageId(1153993564632662016), ChannelId(1153348653122076676), ""berkingurcan"", ""id: bilmem ne, content: \""sex\"" gibi"", Timestamp(2023-09-20T09:58:25.972Z), [], [], None, None), (MessageId(1153993472676724798), ChannelId(1153348653122076676), ""ceneksanzak"", ""Nasi"", Timestamp(2023-09-20T09:58:04.048Z), [(UserId(843590451348111420), ""berkingurcan"")], [], Some((MessageId(1153993054068416543), ""hashmap gibi"")), None), (MessageId(1153993330456281149), ChannelId(1153348653122076676), ""berkingurcan"", ""çine bedel kırkımız"", Timestamp(2023-09-20T09:57:30.140Z), [(UserId(388033380903682058), ""ceneksanzak"")], [], Some((MessageId(1153992142381924352), ""Yaşasın ırkımız"")), None), (MessageId(1153993054068416543), ChannelId(1153348653122076676), ""berkingurcan"", ""hashmap gibi"", Timestamp(2023-09-20T09:56:24.244Z), [], [], None, None), (MessageId(1153993031771508838), ChannelId(1153348653122076676), ""berkingurcan"", ""bunu fieldlerin adıyla mı şaapsam"", Timestamp(2023-09-20T09:56:18.928Z), [], [], None, None),",2023-09-20T09:59:34.889Z,,,,
+1153993564632662016,1153348653122076676,berkingurcan,"id: bilmem ne, content: ""sex"" gibi",2023-09-20T09:58:25.972Z,,,,
+1153993472676724798,1153348653122076676,ceneksanzak,Nasi,2023-09-20T09:58:04.048Z,843590451348111420: berkingurcan,,1153993054068416543: hashmap gibi,
+1153993330456281149,1153348653122076676,berkingurcan,çine bedel kırkımız,2023-09-20T09:57:30.140Z,388033380903682058: ceneksanzak,,1153992142381924352: Yaşasın ırkımız,
+1153993054068416543,1153348653122076676,berkingurcan,hashmap gibi,2023-09-20T09:56:24.244Z,,,,
+1153993031771508838,1153348653122076676,berkingurcan,bunu fieldlerin adıyla mı şaapsam,2023-09-20T09:56:18.928Z,,,,
+1153992178322898984,1153348653122076676,berkingurcan,"```Ok([(MessageId(1153992142381924352), ChannelId(1153348653122076676), ""ceneksanzak"", ""Yaşasın ırkımız"", Timestamp(2023-09-20T09:52:46.881Z), [], [], None, None), (MessageId(1153992140213460992), ChannelId(1153348653122076676), ""berkingurcan"", ""KAŞARLIK ÜÇÜNCÜ"", Timestamp(2023-09-20T09:52:46.364Z), [], [], None, None), (MessageId(1153992093350498364), ChannelId(1153348653122076676), ""berkingurcan"", ""SECONT EHEHEHHEIOLKŞM"", Timestamp(2023-09-20T09:52:35.191Z), [], [], None, None), (MessageId(1153992077814800415), ChannelId(1153348653122076676), ""berkingurcan"", ""FIRST MESSAGE eheh"", Timestamp(2023-09-20T09:52:31.487Z), [], [], None, None), (MessageId(1153991989788934256), ChannelId(1153348653122076676), ""berkingurcan"", ""pompa"", Timestamp(2023-09-20T09:52:10.500Z), [], [], None, None)])````",2023-09-20T09:52:55.450Z,,,,
+1153992142381924352,1153348653122076676,ceneksanzak,Yaşasın ırkımız,2023-09-20T09:52:46.881Z,,,,
+1153992140213460992,1153348653122076676,berkingurcan,KAŞARLIK ÜÇÜNCÜ,2023-09-20T09:52:46.364Z,,,,
+1153992093350498364,1153348653122076676,berkingurcan,SECONT EHEHEHHEIOLKŞM,2023-09-20T09:52:35.191Z,,,,
+1153992077814800415,1153348653122076676,berkingurcan,FIRST MESSAGE eheh,2023-09-20T09:52:31.487Z,,,,
+1153991989788934256,1153348653122076676,berkingurcan,pompa,2023-09-20T09:52:10.500Z,,,,
+1153991864840618014,1153348653122076676,berkingurcan,"```
 [(MessageId(1153991770326175784), ChannelId(1153348653122076676), ""berkingurcan"", ""selamun aleyq"", Timestamp(2023-09-20T09:51:18.176Z), [], [], Some((MessageId(1153990475783610378), ""priwyet"")), None)]
-````",2023-09-20T09:51:40.710Z,,,
-1153991770326175784,1153348653122076676,selamun aleyq,2023-09-20T09:51:18.176Z,,,1153990475783610378: priwyet
-1153990475783610378,1153348653122076676,priwyet,2023-09-20T09:46:09.533Z,,,1153946381417984070: segunta
-1153946381417984070,1153348653122076676,segunta,2023-09-20T06:50:56.617Z,,,
-1153732132913557554,1153348653122076676,asndbhaskjndlmkşlöasşkdnjbhasknjdkmölas,2023-09-19T16:39:35.793Z,,,1153732047475585054: helo
-1153732090983096421,1153348653122076676,tırorroaıroskapdjasndmksaöldasbdnjmas,2023-09-19T16:39:25.796Z,,,1153732047475585054: helo
-1153732047475585054,1153348653122076676,helo,2023-09-19T16:39:15.423Z,,,
-1153643142629830706,1153348653122076676,😛,2023-09-19T10:45:58.856Z,,,
-1153643088984670239,1153348653122076676,resimi nasıl alıyor acaba ammmmmmmmk,2023-09-19T10:45:46.066Z,,,1153643022714675211: 
-1153643022714675211,1153348653122076676,,2023-09-19T10:45:30.266Z,,,
-1153642874878046258,1153348653122076676,"````
+````",2023-09-20T09:51:40.710Z,,,,
+1153991770326175784,1153348653122076676,berkingurcan,selamun aleyq,2023-09-20T09:51:18.176Z,,,1153990475783610378: priwyet,
+1153990475783610378,1153348653122076676,berkingurcan,priwyet,2023-09-20T09:46:09.533Z,,,1153946381417984070: segunta,
+1153946381417984070,1153348653122076676,berkingurcan,segunta,2023-09-20T06:50:56.617Z,,,,
+1153732132913557554,1153348653122076676,berkingurcan,asndbhaskjndlmkşlöasşkdnjbhasknjdkmölas,2023-09-19T16:39:35.793Z,,,1153732047475585054: helo,
+1153732090983096421,1153348653122076676,berkingurcan,tırorroaıroskapdjasndmksaöldasbdnjmas,2023-09-19T16:39:25.796Z,,,1153732047475585054: helo,
+1153732047475585054,1153348653122076676,berkingurcan,helo,2023-09-19T16:39:15.423Z,,,,
+1153643142629830706,1153348653122076676,berkingurcan,😛,2023-09-19T10:45:58.856Z,,,,
+1153643088984670239,1153348653122076676,berkingurcan,resimi nasıl alıyor acaba ammmmmmmmk,2023-09-19T10:45:46.066Z,,,1153643022714675211: ,
+1153643022714675211,1153348653122076676,berkingurcan,,2023-09-19T10:45:30.266Z,,,,
+1153642874878046258,1153348653122076676,berkingurcan,"````
 Ok([(MessageId(1153642659659923527), ChannelId(1153348653122076676), ""berkingurcan"", ""FOŞO"", Timestamp(2023-09-19T10:44:03.707Z), [], [], None, None), (MessageId(1153640855920443393), ChannelId(1153348653122076676), ""berkingurcan"", ""<@388033380903682058> zıt erenköy"", Timestamp(2023-09-19T10:36:53.662Z), [(UserId(388033380903682058), ""ceneksanzak"")], [], None, None),
-````",2023-09-19T10:44:55.019Z,,,
-1153642659659923527,1153348653122076676,FOŞO,2023-09-19T10:44:03.707Z,,,
-1153640855920443393,1153348653122076676,<@388033380903682058> zıt erenköy,2023-09-19T10:36:53.662Z,388033380903682058: ceneksanzak,,
-1153640711430885407,1153348653122076676,@everyone ehehe,2023-09-19T10:36:19.213Z,,,
-1153640563158040586,1153348653122076676,da,2023-09-19T10:35:43.862Z,,,
-1153639574489280562,1153348653122076676,oppa bleza,2023-09-19T10:31:48.145Z,,,
-1153638886359179305,1153348653122076676,proje içinde proje amınakoyım deneyimin anasını sikicez,2023-09-19T10:29:04.082Z,,,
-1153638784794103889,1153348653122076676,güzel data veriyo discord,2023-09-19T10:28:39.867Z,,,
-1153638742372917249,1153348653122076676,bu dataları ammınakoyım maşin learning yapsak anlamlı şeyler çıkarır,2023-09-19T10:28:29.753Z,,,
-1153638673267576874,1153348653122076676,biraderim için,2023-09-19T10:28:13.277Z,,,
-1153638646155575387,1153348653122076676,denemebotiçin,2023-09-19T10:28:06.813Z,843590451348111420: berkingurcan,,1153638507831623721: soru sormuyom ha 😄 normal rasgele bi şeyler atıyom data çıksın diye
-1153638507831623721,1153348653122076676,soru sormuyom ha 😄 normal rasgele bi şeyler atıyom data çıksın diye,2023-09-19T10:27:33.834Z,388033380903682058: ceneksanzak,,1153637830808059934: nasi
-1153638405427712020,1153348653122076676,cevab,2023-09-19T10:27:09.419Z,388033380903682058: ceneksanzak,,1153637830808059934: nasi
-1153637830808059934,1153348653122076676,nasi,2023-09-19T10:24:52.419Z,,"1, 🔥",
-1153637307228893225,1153348653122076676,"Result<Vec<(MessageId, serenity::model:🆔:ChannelId, std::string::String, std::string::String, Timestamp, Vec<serenity::model::prelude::User>, Vec<MessageReaction>, Option<Box<serenity::model::channel::Message>>, Option<PartialMember>)>, SerenityError>",2023-09-19T10:22:47.588Z,,,"1153632444667408384: ```rust
+````",2023-09-19T10:44:55.019Z,,,,
+1153642659659923527,1153348653122076676,berkingurcan,FOŞO,2023-09-19T10:44:03.707Z,,,,
+1153640855920443393,1153348653122076676,berkingurcan,<@388033380903682058> zıt erenköy,2023-09-19T10:36:53.662Z,388033380903682058: ceneksanzak,,,
+1153640711430885407,1153348653122076676,berkingurcan,@everyone ehehe,2023-09-19T10:36:19.213Z,,,,
+1153640563158040586,1153348653122076676,berkingurcan,da,2023-09-19T10:35:43.862Z,,,,
+1153639574489280562,1153348653122076676,berkingurcan,oppa bleza,2023-09-19T10:31:48.145Z,,,,
+1153638886359179305,1153348653122076676,berkingurcan,proje içinde proje amınakoyım deneyimin anasını sikicez,2023-09-19T10:29:04.082Z,,,,
+1153638784794103889,1153348653122076676,berkingurcan,güzel data veriyo discord,2023-09-19T10:28:39.867Z,,,,
+1153638742372917249,1153348653122076676,berkingurcan,bu dataları ammınakoyım maşin learning yapsak anlamlı şeyler çıkarır,2023-09-19T10:28:29.753Z,,,,
+1153638673267576874,1153348653122076676,ceneksanzak,biraderim için,2023-09-19T10:28:13.277Z,,,,
+1153638646155575387,1153348653122076676,ceneksanzak,denemebotiçin,2023-09-19T10:28:06.813Z,843590451348111420: berkingurcan,,1153638507831623721: soru sormuyom ha 😄 normal rasgele bi şeyler atıyom data çıksın diye,
+1153638507831623721,1153348653122076676,berkingurcan,soru sormuyom ha 😄 normal rasgele bi şeyler atıyom data çıksın diye,2023-09-19T10:27:33.834Z,388033380903682058: ceneksanzak,,1153637830808059934: nasi,
+1153638405427712020,1153348653122076676,berkingurcan,cevab,2023-09-19T10:27:09.419Z,388033380903682058: ceneksanzak,,1153637830808059934: nasi,
+1153637830808059934,1153348653122076676,ceneksanzak,nasi,2023-09-19T10:24:52.419Z,,"1, 🔥",,
+1153637307228893225,1153348653122076676,berkingurcan,"Result<Vec<(MessageId, serenity::model:🆔:ChannelId, std::string::String, std::string::String, Timestamp, Vec<serenity::model::prelude::User>, Vec<MessageReaction>, Option<Box<serenity::model::channel::Message>>, Option<PartialMember>)>, SerenityError>",2023-09-19T10:22:47.588Z,,,"1153632444667408384: ```rust
 let extracted_data: Result<Vec<_>, _> = _messages.map(|messages| {
             messages.iter().map(|message| {
                 (
@@ -63,10 +66,10 @@ let extracted_data: Result<Vec<_>, _> = _messages.map(|messages| {
 });
 ```
 
-Ok([(MessageId(1153631051785195531), ChannelId(1153348653122076676), ""berkingurcan"", """", Timestamp(2023-09-19T09:57:56.174Z), [User { id: UserId(388033380903682058), avatar: Some(""c9aeecc1fae3a381dc05b057e926465f""), bot: false, discriminator: 0, name: ""ceneksanzak"", public_flags: Some((empty)), banner: None, accent_colour: None, member: None }], [], Some(Message { id: MessageId(1153630026177183804), channel_id: ChannelId(1153348653122076676), author: User { id: UserId(388033380903682058), avatar: Some(""c9aeecc1fae3a381dc05b057e926465f""), bot: false, discriminator: 0, name: ""ceneksanzak"", public_flags: Some((empty)), banner: None, accent_colour: None, member: None }, content: """", timestamp: Timestamp(2023-09-19T09:53:51.650Z), edited_timestamp: None, tts: false, mention_everyone: false, mentions: [], mention_roles: [], mention_channels: [], attachments: [], embeds: [], reactions: [], nonce: Null, pinned: false, webhook_id: None, kind: MemberJoin, activity: None, application: None, application_id: None, message_reference: None, flags: Some((empty)), referenced_message: None, interaction: None, thread: None, components: [], sticker_items: [], guild_id: None, member: None }), None),"
-1153637072859578368,1153348653122076676,"```
-Result<Vec<(MessageId, serenity::model::id::ChannelId, std::string::String, std::string::String, Timestamp, Vec<serenity::model::prelude::User>, Vec<MessageReaction>, Option<Box<serenity::model::channel::Message>>, Option<PartialMember>)>, SerenityError>```",2023-09-19T10:21:51.710Z,,,
-1153632444667408384,1153348653122076676,"```rust
+Ok([(MessageId(1153631051785195531), ChannelId(1153348653122076676), ""berkingurcan"", """", Timestamp(2023-09-19T09:57:56.174Z), [User { id: UserId(388033380903682058), avatar: Some(""c9aeecc1fae3a381dc05b057e926465f""), bot: false, discriminator: 0, name: ""ceneksanzak"", public_flags: Some((empty)), banner: None, accent_colour: None, member: None }], [], Some(Message { id: MessageId(1153630026177183804), channel_id: ChannelId(1153348653122076676), author: User { id: UserId(388033380903682058), avatar: Some(""c9aeecc1fae3a381dc05b057e926465f""), bot: false, discriminator: 0, name: ""ceneksanzak"", public_flags: Some((empty)), banner: None, accent_colour: None, member: None }, content: """", timestamp: Timestamp(2023-09-19T09:53:51.650Z), edited_timestamp: None, tts: false, mention_everyone: false, mentions: [], mention_roles: [], mention_channels: [], attachments: [], embeds: [], reactions: [], nonce: Null, pinned: false, webhook_id: None, kind: MemberJoin, activity: None, application: None, application_id: None, message_reference: None, flags: Some((empty)), referenced_message: None, interaction: None, thread: None, components: [], sticker_items: [], guild_id: None, member: None }), None),",
+1153637072859578368,1153348653122076676,berkingurcan,"```
+Result<Vec<(MessageId, serenity::model::id::ChannelId, std::string::String, std::string::String, Timestamp, Vec<serenity::model::prelude::User>, Vec<MessageReaction>, Option<Box<serenity::model::channel::Message>>, Option<PartialMember>)>, SerenityError>```",2023-09-19T10:21:51.710Z,,,,
+1153632444667408384,1153348653122076676,berkingurcan,"```rust
 let extracted_data: Result<Vec<_>, _> = _messages.map(|messages| {
             messages.iter().map(|message| {
                 (
@@ -84,25 +87,25 @@ let extracted_data: Result<Vec<_>, _> = _messages.map(|messages| {
 });
 ```
 
-Ok([(MessageId(1153631051785195531), ChannelId(1153348653122076676), ""berkingurcan"", """", Timestamp(2023-09-19T09:57:56.174Z), [User { id: UserId(388033380903682058), avatar: Some(""c9aeecc1fae3a381dc05b057e926465f""), bot: false, discriminator: 0, name: ""ceneksanzak"", public_flags: Some((empty)), banner: None, accent_colour: None, member: None }], [], Some(Message { id: MessageId(1153630026177183804), channel_id: ChannelId(1153348653122076676), author: User { id: UserId(388033380903682058), avatar: Some(""c9aeecc1fae3a381dc05b057e926465f""), bot: false, discriminator: 0, name: ""ceneksanzak"", public_flags: Some((empty)), banner: None, accent_colour: None, member: None }, content: """", timestamp: Timestamp(2023-09-19T09:53:51.650Z), edited_timestamp: None, tts: false, mention_everyone: false, mentions: [], mention_roles: [], mention_channels: [], attachments: [], embeds: [], reactions: [], nonce: Null, pinned: false, webhook_id: None, kind: MemberJoin, activity: None, application: None, application_id: None, message_reference: None, flags: Some((empty)), referenced_message: None, interaction: None, thread: None, components: [], sticker_items: [], guild_id: None, member: None }), None),",2023-09-19T10:03:28.263Z,,,
-1153631051785195531,1153348653122076676,,2023-09-19T09:57:56.174Z,388033380903682058: ceneksanzak,,1153630026177183804: 
-1153630026177183804,1153348653122076676,"Welcome, <@388033380903682058>. We hope you brought pizza.",2023-09-19T09:53:51.650Z,,,
-1153629158199537674,1153348653122076676,heyo jord,2023-09-19T09:50:24.708Z,,,
-1153626037989675008,1153348653122076676,wızt,2023-09-19T09:38:00.792Z,,,
-1153588713624965172,1153348653122076676,what what,2023-09-19T07:09:41.970Z,,,
-1153588607873994782,1153348653122076676,so what?,2023-09-19T07:09:16.757Z,,"1, 👍",1153587833039224882: helololo
-1153587833039224882,1153348653122076676,helololo,2023-09-19T07:06:12.022Z,,,
-1153587400296112218,1153348653122076676,ththt,2023-09-19T07:04:28.848Z,,,
-1153558001714728980,1153348653122076676,bombombombombçikooooooooooooo,2023-09-19T05:07:39.680Z,,,1153557943392931911: selame
-1153557964972638260,1153348653122076676,bomçiko,2023-09-19T05:07:30.920Z,,,
-1153557951651520564,1153348653122076676,ololo,2023-09-19T05:07:27.744Z,,,
-1153557943392931911,1153348653122076676,selame,2023-09-19T05:07:25.775Z,,,
-1153361297392537610,1153348653122076676,Pong!,2023-09-18T16:06:01.715Z,,,
-1153361296151023658,1153348653122076676,!ping,2023-09-18T16:06:01.419Z,,,
-1153356819880747138,1153348653122076676,Pong!,2023-09-18T15:48:14.193Z,,,
-1153356818198822962,1153348653122076676,!ping,2023-09-18T15:48:13.792Z,,,
-1153356548828049558,1153348653122076676,ping,2023-09-18T15:47:09.569Z,,,
-1153356521762201742,1153348653122076676,hello,2023-09-18T15:47:03.116Z,,,
-1153350087360135170,1153348653122076676,ping,2023-09-18T15:21:29.035Z,,,
-1153348871909539881,1153348653122076676,yes it is a question,2023-09-18T15:16:39.249Z,,,1153348794981822544: hi is this a question
-1153348794981822544,1153348653122076676,hi is this a question,2023-09-18T15:16:20.908Z,,,
+Ok([(MessageId(1153631051785195531), ChannelId(1153348653122076676), ""berkingurcan"", """", Timestamp(2023-09-19T09:57:56.174Z), [User { id: UserId(388033380903682058), avatar: Some(""c9aeecc1fae3a381dc05b057e926465f""), bot: false, discriminator: 0, name: ""ceneksanzak"", public_flags: Some((empty)), banner: None, accent_colour: None, member: None }], [], Some(Message { id: MessageId(1153630026177183804), channel_id: ChannelId(1153348653122076676), author: User { id: UserId(388033380903682058), avatar: Some(""c9aeecc1fae3a381dc05b057e926465f""), bot: false, discriminator: 0, name: ""ceneksanzak"", public_flags: Some((empty)), banner: None, accent_colour: None, member: None }, content: """", timestamp: Timestamp(2023-09-19T09:53:51.650Z), edited_timestamp: None, tts: false, mention_everyone: false, mentions: [], mention_roles: [], mention_channels: [], attachments: [], embeds: [], reactions: [], nonce: Null, pinned: false, webhook_id: None, kind: MemberJoin, activity: None, application: None, application_id: None, message_reference: None, flags: Some((empty)), referenced_message: None, interaction: None, thread: None, components: [], sticker_items: [], guild_id: None, member: None }), None),",2023-09-19T10:03:28.263Z,,,,
+1153631051785195531,1153348653122076676,berkingurcan,,2023-09-19T09:57:56.174Z,388033380903682058: ceneksanzak,,1153630026177183804: ,
+1153630026177183804,1153348653122076676,ceneksanzak,"Welcome, <@388033380903682058>. We hope you brought pizza.",2023-09-19T09:53:51.650Z,,,,
+1153629158199537674,1153348653122076676,berkingurcan,heyo jord,2023-09-19T09:50:24.708Z,,,,
+1153626037989675008,1153348653122076676,berkingurcan,wızt,2023-09-19T09:38:00.792Z,,,,
+1153588713624965172,1153348653122076676,berkingurcan,what what,2023-09-19T07:09:41.970Z,,,,
+1153588607873994782,1153348653122076676,berkingurcan,so what?,2023-09-19T07:09:16.757Z,,"1, 👍",1153587833039224882: helololo,
+1153587833039224882,1153348653122076676,berkingurcan,helololo,2023-09-19T07:06:12.022Z,,,,
+1153587400296112218,1153348653122076676,berkingurcan,ththt,2023-09-19T07:04:28.848Z,,,,
+1153558001714728980,1153348653122076676,berkingurcan,bombombombombçikooooooooooooo,2023-09-19T05:07:39.680Z,,,1153557943392931911: selame,
+1153557964972638260,1153348653122076676,berkingurcan,bomçiko,2023-09-19T05:07:30.920Z,,,,
+1153557951651520564,1153348653122076676,berkingurcan,ololo,2023-09-19T05:07:27.744Z,,,,
+1153557943392931911,1153348653122076676,berkingurcan,selame,2023-09-19T05:07:25.775Z,,,,
+1153361297392537610,1153348653122076676,berkingbot,Pong!,2023-09-18T16:06:01.715Z,,,,
+1153361296151023658,1153348653122076676,berkingurcan,!ping,2023-09-18T16:06:01.419Z,,,,
+1153356819880747138,1153348653122076676,berkingbot,Pong!,2023-09-18T15:48:14.193Z,,,,
+1153356818198822962,1153348653122076676,berkingurcan,!ping,2023-09-18T15:48:13.792Z,,,,
+1153356548828049558,1153348653122076676,berkingurcan,ping,2023-09-18T15:47:09.569Z,,,,
+1153356521762201742,1153348653122076676,berkingurcan,hello,2023-09-18T15:47:03.116Z,,,,
+1153350087360135170,1153348653122076676,berkingurcan,ping,2023-09-18T15:21:29.035Z,,,,
+1153348871909539881,1153348653122076676,berkingurcan,yes it is a question,2023-09-18T15:16:39.249Z,,,1153348794981822544: hi is this a question,
+1153348794981822544,1153348653122076676,berkingurcan,hi is this a question,2023-09-18T15:16:20.908Z,,,,

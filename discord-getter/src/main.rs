@@ -47,7 +47,9 @@ impl EventHandler for Handler {
                     message.referenced_message.as_ref().map(|referenced_message| {
                         (referenced_message.id, referenced_message.content.clone())
                     }),
-                    message.member.iter().map(|mem| (mem.nick, mem.roles.clone())).collect::<Vec<_>>(),
+                    message.member.as_ref().map(|memb| {
+                        (memb.nick.as_ref().map(String::to_string), memb.roles.iter().map(|x| x.to_string() + ",").collect::<String>())
+                    }),
                 )
             }).collect()
         });
@@ -60,6 +62,7 @@ impl EventHandler for Handler {
             writer.write_record(&[
                 data.0.to_string(),
                 data.1.to_string(),
+                data.2.to_string(),
                 data.3.to_string(),
                 data.4.to_string(),
                 data.5.iter()
@@ -78,7 +81,7 @@ impl EventHandler for Handler {
                     .join(",")
                     .to_string(),
                 data.8.iter()
-                    .map(|(nick, roles)| format!("{}: {}", nick.to_string(), roles.join(",").to_string()))
+                    .map(|(nick, roles)| format!("{}: {}", nick.as_ref().map_or("NONE", |n| n), roles))
                     .collect::<Vec<_>>()
                     .join(",")
                     .to_string(),

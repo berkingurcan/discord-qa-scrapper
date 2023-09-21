@@ -31,8 +31,8 @@ impl EventHandler for Handler {
     async fn message(&self, ctx: Context, _msg: Message) {
         let channel_id = ChannelId(1153348653122076676);
         let _messages = channel_id
-        .messages(&ctx, |retriever| retriever.after(MessageId(1153348746881540206)).limit(100))
-        .await;
+            .messages(&ctx, |retriever| retriever.after(MessageId(1153348746881540206)).limit(100))
+            .await;
 
         let extracted_data: Result<Vec<_>, _> = _messages.map(|messages| {
             messages.iter().map(|message| {
@@ -55,7 +55,6 @@ impl EventHandler for Handler {
         });
 
         let mut unwrapped_extracted_data = extracted_data.unwrap();
-
         let mut writer = Writer::from_path("output.csv").unwrap();
 
         for data in unwrapped_extracted_data {

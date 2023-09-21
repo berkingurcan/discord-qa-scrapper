@@ -87,7 +87,6 @@ impl EventHandler for Handler {
                     .to_string(),
             ]);
         }
-
     }
 
     // Set a handler to be called on the `ready` event. This is called when a

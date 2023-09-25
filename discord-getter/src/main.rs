@@ -31,18 +31,22 @@ impl EventHandler for Handler {
     async fn message(&self, ctx: Context, _msg: Message) {
         let channel_id = ChannelId(1154341442706231387);
 
+        // ARCHIVED THREADS
         let _archived_threads = channel_id.get_archived_public_threads(ctx, None, None);
-        // let _active_threads = channel_id.get_active_threads();
 
         match (_archived_threads).await {
             Ok(data) => println!("{:?}", data),
             Err(error) => println!("{:?}", error),
         }
 
+        // ACTIVE THREAD
 
-        
+        let _active_threads = channel_id.get_guild_active_threads(ctx, None);
 
-        
+        match (_active_threads).await = {
+            Ok(data) => println!("{:?}", data),
+            Err(error) => println!("{:?}", error),
+        }
     }
 
     // Set a handler to be called on the `ready` event. This is called when a

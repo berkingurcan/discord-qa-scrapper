@@ -18,3 +18,5 @@ output.csv
 *.csv
 discord-getter/output.csv
 .DS_Store
+
+threads/

@@ -39,7 +39,15 @@ impl EventHandler for Handler {
         let _archived_threads = channel_id.get_archived_public_threads(&ctx, None, None);
 
         match (_archived_threads).await {
-            Ok(data) => println!("{:?}", data),
+            Ok(data) => {
+                let requested_channel_id = Some(ChannelId(1154341442706231387));
+                let archived_thread_ids: Vec<ChannelId> = data.threads.iter()
+                    .filter(|channel| channel.parent_id == requested_channel_id)
+                    .map(|channel| channel.id)
+                    .collect();
+                    
+                println!("{:?}", archived_thread_ids);
+            },
             Err(error) => println!("{:?}", error),
         }
 
@@ -48,8 +56,13 @@ impl EventHandler for Handler {
 
         match (_active_threads).await {
             Ok(data) => {
-                let channel_ids: Vec<ChannelId> = data.threads.iter().map(|channel| channel.id).collect();
-                println!("{:?}", channel_ids);
+                let requested_channel_id = Some(ChannelId(1154341442706231387));
+                let active_thread_ids: Vec<ChannelId> = data.threads.iter()
+                    .filter(|channel| channel.parent_id == requested_channel_id)
+                    .map(|channel| channel.id)
+                    .collect();
+
+                println!("{:?}", active_thread_ids);
             },
             Err(error) => println!("{:?}", error),
         }

@@ -7,6 +7,7 @@ use serenity::model::channel::Message;
 use serenity::model::gateway::Ready;
 use serenity::framework::standard::macros::{command, group};
 use serenity::framework::standard::{StandardFramework, CommandResult};
+use serenity::model::prelude::GuildId;
 use serenity::model::id::{ChannelId, MessageId};
 
 use csv::Writer;
@@ -29,10 +30,13 @@ impl EventHandler for Handler {
     // events can be dispatched simultaneously.
 
     async fn message(&self, ctx: Context, _msg: Message) {
+        // TODO: Get channel and guild Ids automatically
+
         let channel_id = ChannelId(1154341442706231387);
+        let guild_id = GuildId(1153348653122076673);
 
         // ARCHIVED THREADS
-        let _archived_threads = channel_id.get_archived_public_threads(ctx, None, None);
+        let _archived_threads = channel_id.get_archived_public_threads(&ctx, None, None);
 
         match (_archived_threads).await {
             Ok(data) => println!("{:?}", data),
@@ -41,9 +45,9 @@ impl EventHandler for Handler {
 
         // ACTIVE THREAD
 
-        let _active_threads = channel_id.get_guild_active_threads(ctx, None);
+        let _active_threads = guild_id.get_active_threads(ctx);
 
-        match (_active_threads).await = {
+        match (_active_threads).await {
             Ok(data) => println!("{:?}", data),
             Err(error) => println!("{:?}", error),
         }

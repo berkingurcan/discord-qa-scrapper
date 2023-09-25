@@ -43,12 +43,14 @@ impl EventHandler for Handler {
             Err(error) => println!("{:?}", error),
         }
 
-        // ACTIVE THREAD
-
+        // ACTIVE THREAD 
         let _active_threads = guild_id.get_active_threads(ctx);
 
         match (_active_threads).await {
-            Ok(data) => println!("{:?}", data),
+            Ok(data) => {
+                let channel_ids: Vec<ChannelId> = data.threads.iter().map(|channel| channel.id).collect();
+                println!("{:?}", channel_ids);
+            },
             Err(error) => println!("{:?}", error),
         }
     }

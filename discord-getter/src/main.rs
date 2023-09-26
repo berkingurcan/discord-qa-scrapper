@@ -30,13 +30,67 @@ impl EventHandler for Handler {
     // events can be dispatched simultaneously.
 
     async fn message(&self, ctx: Context, _msg: Message) {
-        // TODO: Get channel and guild Ids automatically
 
-        let channel_id = ChannelId(1154341442706231387);
+        // Getting Main channel chat data
+        let channel_id = ChannelId(1153348653122076676);
+        let _messages = channel_id
+            .messages(&ctx, |retriever| retriever.after(MessageId(0)).limit(1000000))
+            .await;
+    
+        let mut writer = Writer::from_path("./chat_outputs/output.csv").unwrap();
+
+        if let Ok(messages) = _messages {
+            for message in messages {
+                let data = (
+                    message.id,
+                    message.channel_id,
+                    message.author.name.clone(),
+                    message.content.clone(),
+                    message.timestamp,
+                    message
+                        .mentions
+                        .iter()
+                        .map(|user| format!("{}: {}", user.id, user.name))
+                        .collect::<Vec<_>>()
+                        .join(","),
+                    message
+                        .reactions
+                        .iter()
+                        .map(|reaction| format!("{}, {}", reaction.count, reaction.reaction_type))
+                        .collect::<Vec<_>>()
+                        .join(","),
+                    message
+                        .referenced_message
+                        .as_ref()
+                        .map(|referenced_message| format!("{}: {}", referenced_message.id, referenced_message.content)),
+                    message.member.as_ref().map(|memb| {
+                        (
+                            memb.nick.as_ref().map_or("NONE", |n| &n),
+                            memb.roles.iter().map(|x| x.to_string() + ",").collect::<String>(),
+                        )
+                    }),
+                );
+    
+                writer.write_record(&[
+                    data.0.to_string(),
+                    data.1.to_string(),
+                    data.2.to_string(),
+                    data.3.to_string(),
+                    data.4.to_string(),
+                    data.5,
+                    data.6,
+                    data.7.unwrap_or_default(), // referenced_message
+                    data.8.map_or("NONE,NONE".to_string(), |(nick, roles)| format!("{}: {}", nick, roles)),
+                ]);
+            }
+        }
+
+        // TODO: Get channel and guild Ids automatically
+        let forum_channel_id = ChannelId(1154341442706231387);
         let guild_id = GuildId(1153348653122076673);
 
         // ARCHIVED THREADS
-        let _archived_threads = channel_id.get_archived_public_threads(&ctx, None, None);
+        let _archived_threads = forum_channel_id.get_archived_public_threads(&ctx, None, None);
 
         match (_archived_threads).await {
             Ok(data) => {

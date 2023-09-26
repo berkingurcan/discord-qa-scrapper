@@ -30,6 +30,14 @@ impl EventHandler for Handler {
     // events can be dispatched simultaneously.
 
     async fn message(&self, ctx: Context, _msg: Message) {
+        /*
+           ____ _____ _____    ____ _   _    _    _   _ _   _ _____ _        ____ _   _    _  _____ 
+          / ___| ____|_   _|  / ___| | | |  / \  | \ | | \ | | ____| |      / ___| | | |  / \|_   _|
+         | |  _|  _|   | |   | |   | |_| | / _ \ |  \| |  \| |  _| | |     | |   | |_| | / _ \ | |  
+         | |_| | |___  | |   | |___|  _  |/ ___ \| |\  | |\  | |___| |___  | |___|  _  |/ ___ \| |  
+          \____|_____| |_|    \____|_| |_/_/   \_\_| \_|_| \_|_____|_____|  \____|_| |_/_/   \_\_|  
+        */
+
 
         // Getting Main channel chat data
         let channel_id = ChannelId(1153348653122076676);
@@ -88,6 +96,13 @@ impl EventHandler for Handler {
         // TODO: Get channel and guild Ids automatically
         let forum_channel_id = ChannelId(1154341442706231387);
         let guild_id = GuildId(1153348653122076673);
+        /*
+         ____ _____ _____   _____ _   _ ____  _____    _    ____  ____  
+        / ___| ____|_   _| |_   _| | | |  _ \| ____|  / \  |  _ \/ ___| 
+       | |  _|  _|   | |     | | | |_| | |_) |  _|   / _ \ | | | \___ \ 
+       | |_| | |___  | |     | | |  _  |  _ <| |___ / ___ \| |_| |___) |
+        \____|_____| |_|     |_| |_| |_|_| \_\_____/_/   \_\____/|____/ 
+        */
 
         // ARCHIVED THREADS
         let _archived_threads = forum_channel_id.get_archived_public_threads(&ctx, None, None);

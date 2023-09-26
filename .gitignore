@@ -20,3 +20,4 @@ discord-getter/output.csv
 .DS_Store
 
 threads/
+chat_outputs/

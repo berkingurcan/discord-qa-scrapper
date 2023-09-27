@@ -1,17 +1,11 @@
-use std::env;
-use dotenv::dotenv;
-
 use serenity::async_trait;
 use serenity::prelude::*;
 use serenity::model::channel::Message;
 use serenity::model::gateway::Ready;
-use serenity::framework::standard::macros::{command, group};
-use serenity::framework::standard::{StandardFramework, CommandResult};
 use serenity::model::prelude::GuildId;
 use serenity::model::id::{ChannelId, MessageId};
 
 use csv::Writer;
-use std::error::Error;
 
 pub struct Handler;
 
@@ -126,7 +120,7 @@ impl EventHandler for Handler {
                         }).collect()
                     });
 
-                    let mut unwrapped_extracted_data = extracted_data.unwrap();
+                    let unwrapped_extracted_data = extracted_data.unwrap();
                     let mut writer = Writer::from_path(format!("./chat_outputs/chat_archived_threads/{}.csv", thread_id.to_string())).unwrap();
 
                     for data in unwrapped_extracted_data {
@@ -207,7 +201,7 @@ impl EventHandler for Handler {
                         }).collect()
                     });
 
-                    let mut unwrapped_extracted_data = extracted_data.unwrap();
+                    let unwrapped_extracted_data = extracted_data.unwrap();
                     let mut writer = Writer::from_path(format!("./threads/archived_threads/{}.csv", thread_id.to_string())).unwrap();
 
                     for data in unwrapped_extracted_data {
@@ -279,7 +273,7 @@ impl EventHandler for Handler {
                             }).collect()
                         });
     
-                        let mut unwrapped_extracted_data = extracted_data.unwrap();
+                        let unwrapped_extracted_data = extracted_data.unwrap();
                         let mut writer = Writer::from_path(format!("./threads/active_threads/{}.csv", thread_id.to_string())).unwrap();
     
                         for data in unwrapped_extracted_data {

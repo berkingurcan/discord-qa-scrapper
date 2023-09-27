@@ -1,20 +1,12 @@
 use std::env;
 use dotenv::dotenv;
 
-use serenity::async_trait;
 use serenity::prelude::*;
 use serenity::model::channel::Message;
-use serenity::model::gateway::Ready;
 use serenity::framework::standard::macros::{command, group};
 use serenity::framework::standard::{StandardFramework, CommandResult};
-use serenity::model::prelude::GuildId;
-use serenity::model::id::{ChannelId, MessageId};
 
 use discord_getter::handler::Handler;
-
-use csv::Writer;
-use std::error::Error;
-
 
 #[group]
 #[commands(ping)]

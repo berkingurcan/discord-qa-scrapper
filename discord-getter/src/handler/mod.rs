@@ -24,6 +24,7 @@ impl EventHandler for Handler {
     // events can be dispatched simultaneously.
 
     async fn message(&self, ctx: Context, _msg: Message) {
+        println!("Working... Don't forget to look chat output folders and threads folders :)")
         handle_chat(&ctx).await;
         handle_archived_channel_threads(&ctx).await;
         handle_archived_forum_threads(&ctx).await;

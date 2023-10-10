@@ -2,6 +2,8 @@ use serenity::prelude::*;
 use serenity::model::id::{ChannelId, MessageId};
 use csv::Writer;
 
+use crate::constants::*;
+
 
 /*
   ____ _____ _____    ____ _   _    _    _   _ _   _ _____ _        ____ _   _    _  _____ 
@@ -12,12 +14,12 @@ use csv::Writer;
 */
 pub async fn handle_chat(ctx: &Context) {
     // Getting Main channel chat data
-    let channel_id = ChannelId(1153348653122076676);
+    let channel_id = ChannelId(CHANNEL_ID);
     let _messages = channel_id
-        .messages(&ctx, |retriever| retriever.after(MessageId(0)).limit(1000000))
+        .messages(&ctx, |retriever| retriever.after(MessageId(AFTER_MESSAGE_ID)).limit(LIMIT))
         .await;
 
-    let mut writer = Writer::from_path("./chat_outputs/output.csv").unwrap();
+    let mut writer = Writer::from_path("./outputs/chat/output.csv").unwrap();
 
     if let Ok(messages) = _messages {
         for message in messages {
@@ -73,19 +75,19 @@ pub async fn handle_chat(ctx: &Context) {
 \___/_//_/\_,_/_//_/_//_/\__/_/   /_/ /_//_/_/  \__/\_,_/\_,_/___/
 */
 pub async fn handle_archived_channel_threads(ctx: &Context) {
-    let channel_id = ChannelId(1153348653122076676);
+    let channel_id = ChannelId(CHANNEL_ID);
     let _archived_channel_threads = channel_id.get_archived_public_threads(&ctx, None, None);
     
     match (_archived_channel_threads).await {
         Ok(data) => {
-            let requested_channel_id = Some(ChannelId(1153348653122076676));
+            let requested_channel_id = Some(ChannelId(CHANNEL_ID));
             let archived_thread_ids: Vec<ChannelId> = data.threads.iter()
                 .filter(|channel| channel.parent_id == requested_channel_id)
                 .map(|channel| channel.id)
                 .collect();
 
             for thread_id in archived_thread_ids {
-                let _thread_messages = thread_id.messages(&ctx, |retriever| retriever.after(MessageId(0)).limit(10000)).await;
+                let _thread_messages = thread_id.messages(&ctx, |retriever| retriever.after(MessageId(AFTER_MESSAGE_ID)).limit(LIMIT)).await;
                 let extracted_data: Result<Vec<_>, _> = _thread_messages.map(|messages| {
                     messages.iter().map(|message| {
                         (
@@ -107,7 +109,7 @@ pub async fn handle_archived_channel_threads(ctx: &Context) {
                 });
 
                 let unwrapped_extracted_data = extracted_data.unwrap();
-                let mut writer = Writer::from_path(format!("./chat_outputs/chat_archived_threads/{}.csv", thread_id.to_string())).unwrap();
+                let mut writer = Writer::from_path(format!("./outputs/chat_archived_threads/{}.csv", thread_id.to_string())).unwrap();
 
                 for data in unwrapped_extracted_data {
                     writer.write_record(&[

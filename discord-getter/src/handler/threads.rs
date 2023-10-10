@@ -3,6 +3,8 @@ use serenity::model::id::{ChannelId, MessageId};
 use serenity::model::prelude::GuildId;
 use csv::Writer;
 
+use crate::constants::*;
+
 /*
   ____ _____ _____   _____ _   _ ____  _____    _    ____  ____  
  / ___| ____|_   _| |_   _| | | |  _ \| ____|  / \  |  _ \/ ___| 
@@ -13,8 +15,8 @@ use csv::Writer;
 
 pub async fn handle_archived_forum_threads(ctx: &Context) {
     // TODO: Get channel and guild Ids automatically
-    let forum_channel_id = ChannelId(1154341442706231387);
-    let guild_id = GuildId(1153348653122076673);
+    let forum_channel_id = ChannelId(FORUM_CHANNEL_ID);
+    let guild_id = GuildId(GUILD_ID);
 
 
     // ARCHIVED THREADS
@@ -22,14 +24,14 @@ pub async fn handle_archived_forum_threads(ctx: &Context) {
 
     match (_archived_threads).await {
         Ok(data) => {
-            let requested_channel_id = Some(ChannelId(1154341442706231387));
+            let requested_channel_id = Some(ChannelId(FORUM_CHANNEL_ID));
             let archived_thread_ids: Vec<ChannelId> = data.threads.iter()
                 .filter(|channel| channel.parent_id == requested_channel_id)
                 .map(|channel| channel.id)
                 .collect();
 
             for thread_id in archived_thread_ids {
-                let _thread_messages = thread_id.messages(&ctx, |retriever| retriever.after(MessageId(0)).limit(10000)).await;
+                let _thread_messages = thread_id.messages(&ctx, |retriever| retriever.after(MessageId(AFTER_MESSAGE_ID)).limit(LIMIT)).await;
                 let extracted_data: Result<Vec<_>, _> = _thread_messages.map(|messages| {
                     messages.iter().map(|message| {
                         (
@@ -51,7 +53,7 @@ pub async fn handle_archived_forum_threads(ctx: &Context) {
                 });
 
                 let unwrapped_extracted_data = extracted_data.unwrap();
-                let mut writer = Writer::from_path(format!("./threads/archived_threads/{}.csv", thread_id.to_string())).unwrap();
+                let mut writer = Writer::from_path(format!("./outputs/archived_threads/{}.csv", thread_id.to_string())).unwrap();
 
                 for data in unwrapped_extracted_data {
                     writer.write_record(&[
@@ -90,21 +92,21 @@ pub async fn handle_archived_forum_threads(ctx: &Context) {
 
 pub async fn handle_active_forum_threads(ctx: &Context) {
     // ACTIVE THREAD 
-    let forum_channel_id = ChannelId(1154341442706231387);
-    let guild_id = GuildId(1153348653122076673);
+    let forum_channel_id = ChannelId(FORUM_CHANNEL_ID);
+    let guild_id = GuildId(GUILD_ID);
 
     let _active_threads = guild_id.get_active_threads(&ctx);
 
     match (_active_threads).await {
         Ok(data) => {
-            let requested_channel_id = Some(ChannelId(1154341442706231387));
+            let requested_channel_id = Some(ChannelId(FORUM_CHANNEL_ID));
             let active_thread_ids: Vec<ChannelId> = data.threads.iter()
                 .filter(|channel| channel.parent_id == requested_channel_id)
                 .map(|channel| channel.id)
                 .collect();
 
             for thread_id in active_thread_ids {
-                let _thread_messages = thread_id.messages(&ctx, |retriever| retriever.after(MessageId(0)).limit(10000)).await;
+                let _thread_messages = thread_id.messages(&ctx, |retriever| retriever.after(MessageId(AFTER_MESSAGE_ID)).limit(LIMIT)).await;
                 let extracted_data: Result<Vec<_>, _> = _thread_messages.map(|messages| {
                     messages.iter().map(|message| {
                         (
@@ -126,7 +128,7 @@ pub async fn handle_active_forum_threads(ctx: &Context) {
                 });
 
                 let unwrapped_extracted_data = extracted_data.unwrap();
-                let mut writer = Writer::from_path(format!("./threads/active_threads/{}.csv", thread_id.to_string())).unwrap();
+                let mut writer = Writer::from_path(format!("./outputs/active_threads/{}.csv", thread_id.to_string())).unwrap();
 
                 for data in unwrapped_extracted_data {
                     writer.write_record(&[

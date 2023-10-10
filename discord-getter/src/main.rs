@@ -8,6 +8,7 @@ use serenity::framework::standard::{StandardFramework, CommandResult};
 
 use discord_getter::handler::Handler;
 
+
 #[group]
 #[commands(ping)]
 struct General;

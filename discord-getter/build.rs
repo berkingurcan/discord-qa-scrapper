@@ -2,11 +2,11 @@ use std::fs;
 
 fn main() {
     let dirs_to_create = vec![
-        "chat_outputs", 
-        "chat_outputs/chat_archived_threads", 
-        "threads", 
-        "threads/active_threads", 
-        "threads/archived_threads"
+        "outputs",
+        "outputs/chat",
+        "outputs/chat_archived_threads",
+        "outputs/active_threads",
+        "outputs/archived_threads",
     ];
 
     for dir in dirs_to_create {

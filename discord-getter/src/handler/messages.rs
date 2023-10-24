@@ -19,6 +19,8 @@ pub async fn handle_chat(ctx: &Context) {
 
     println!("Getting channel messages");
 
+    let mut writer = Writer::from_path("./outputs/chat/output.csv").unwrap();
+
     loop {
         let _messages = channel_id
             .messages(&ctx, |retriever| {
@@ -27,7 +29,6 @@ pub async fn handle_chat(ctx: &Context) {
             .await;
     
 
-        let mut writer = Writer::from_path("./outputs/chat/output.csv").unwrap();
 
         match _messages {
             Ok(messages) => {

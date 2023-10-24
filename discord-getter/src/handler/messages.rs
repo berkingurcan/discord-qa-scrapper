@@ -15,55 +15,76 @@ use crate::constants::*;
 pub async fn handle_chat(ctx: &Context) {
     // Getting Main channel chat data
     let channel_id = ChannelId(CHANNEL_ID);
-    let _messages = channel_id
-        .messages(&ctx, |retriever| retriever.after(MessageId(AFTER_MESSAGE_ID)).limit(LIMIT))
-        .await;
+    let mut last_message_id = None;
 
-    let mut writer = Writer::from_path("./outputs/chat/output.csv").unwrap();
+    println!("Getting channel messages");
 
-    if let Ok(messages) = _messages {
-        for message in messages {
-            let data = (
-                message.id,
-                message.channel_id,
-                message.author.name.clone(),
-                message.content.clone(),
-                message.timestamp,
-                message
-                    .mentions
-                    .iter()
-                    .map(|user| format!("{}: {}", user.id, user.name))
-                    .collect::<Vec<_>>()
-                    .join(","),
-                message
-                    .reactions
-                    .iter()
-                    .map(|reaction| format!("{}, {}", reaction.count, reaction.reaction_type))
-                    .collect::<Vec<_>>()
-                    .join(","),
-                message
-                    .referenced_message
-                    .as_ref()
-                    .map(|referenced_message| format!("{}: {}", referenced_message.id, referenced_message.content)),
-                message.member.as_ref().map(|memb| {
-                    (
-                        memb.nick.as_ref().map_or("NONE", |n| &n),
-                        memb.roles.iter().map(|x| x.to_string() + ",").collect::<String>(),
-                    )
-                }),
-            );
+    loop {
+        let _messages = channel_id
+            .messages(&ctx, |retriever| {
+                retriever.after(last_message_id.unwrap_or(MessageId(AFTER_MESSAGE_ID))).limit(LIMIT)
+            })
+            .await;
+    
 
-            writer.write_record(&[
-                data.0.to_string(),
-                data.1.to_string(),
-                data.2.to_string(),
-                data.3.to_string(),
-                data.4.to_string(),
-                data.5,
-                data.6,
-                data.7.unwrap_or_default(), // referenced_message
-                data.8.map_or("NONE,NONE".to_string(), |(nick, roles)| format!("{}: {}", nick, roles)),
-            ]);
+        let mut writer = Writer::from_path("./outputs/chat/output.csv").unwrap();
+
+        match _messages {
+            Ok(messages) => {
+                if messages.is_empty() {
+                    break;
+                }
+
+                last_message_id = Some(messages.last().unwrap().id);
+
+                for message in messages {
+                    let data = (
+                        message.id,
+                        message.channel_id,
+                        message.author.name.clone(),
+                        message.content.clone(),
+                        message.timestamp,
+                        message
+                            .mentions
+                            .iter()
+                            .map(|user| format!("{}: {}", user.id, user.name))
+                            .collect::<Vec<_>>()
+                            .join(","),
+                        message
+                            .reactions
+                            .iter()
+                            .map(|reaction| format!("{}, {}", reaction.count, reaction.reaction_type))
+                            .collect::<Vec<_>>()
+                            .join(","),
+                        message
+                            .referenced_message
+                            .as_ref()
+                            .map(|referenced_message| format!("{}: {}", referenced_message.id, referenced_message.content)),
+                        message.member.as_ref().map(|memb| {
+                            (
+                                memb.nick.as_ref().map_or("NONE", |n| &n),
+                                memb.roles.iter().map(|x| x.to_string() + ",").collect::<String>(),
+                            )
+                        }),
+                    );
+
+                    writer.write_record(&[
+                        data.0.to_string(),
+                        data.1.to_string(),
+                        data.2.to_string(),
+                        data.3.to_string(),
+                        data.4.to_string(),
+                        data.5,
+                        data.6,
+                        data.7.unwrap_or_default(), // referenced_message
+                        data.8.map_or("NONE,NONE".to_string(), |(nick, roles)| format!("{}: {}", nick, roles)),
+                    ]);
+                }
+            }
+            Err(error) => {
+                println!("Error fetching messages: {:?}", error);
+                break;
+            }
         }
     }
 }

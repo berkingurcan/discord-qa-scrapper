@@ -19,9 +19,12 @@ pub async fn handle_chat(ctx: &Context) {
 
     println!("Getting channel messages");
 
-    let mut writer = Writer::from_path("./outputs/chat/output.csv").unwrap();
+    let mut counter = 0;
 
     loop {
+        counter += 1;
+        let mut writer = Writer::from_path(format!("./outputs/chat/output{}.csv", counter)).unwrap();
+
         let _messages = channel_id
             .messages(&ctx, |retriever| {
                 retriever.after(last_message_id.unwrap_or(MessageId(AFTER_MESSAGE_ID))).limit(LIMIT)

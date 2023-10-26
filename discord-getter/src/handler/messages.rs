@@ -113,7 +113,7 @@ pub async fn handle_chat(ctx: &Context) {
 pub async fn handle_archived_channel_threads(ctx: &Context) {
     let channel_id = ChannelId(CHANNEL_ID);
     let _archived_channel_threads = channel_id.get_archived_public_threads(&ctx, None, None);
-    
+
     match (_archived_channel_threads).await {
         Ok(data) => {
             let requested_channel_id = Some(ChannelId(CHANNEL_ID));

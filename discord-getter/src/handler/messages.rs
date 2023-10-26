@@ -24,6 +24,17 @@ pub async fn handle_chat(ctx: &Context) {
     loop {
         counter += 1;
         let mut writer = Writer::from_path(format!("./outputs/chat/output{}.csv", counter)).unwrap();
+        writer.write_record(&[
+            "id",
+            "channel_id",
+            "author",
+            "content",
+            "timestamp",
+            "mentions",
+            "reactions",
+            "referenced_message",
+            "member",
+        ]);
 
         let _messages = channel_id
             .messages(&ctx, |retriever| {

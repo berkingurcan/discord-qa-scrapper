@@ -53,9 +53,9 @@ impl EventHandler for Handler {
     // events can be dispatched simultaneously.
     async fn message(&self, ctx: Context, _msg: Message) {
         print_rainbow_text("Working... Getting channel messages");
-        handle_chat(&ctx).await;
+        //handle_chat(&ctx).await;
         print_rainbow_text("Working... Getting archived channel threads");
-        handle_archived_channel_threads(&ctx).await;
+        //handle_archived_channel_threads(&ctx).await;
         print_rainbow_text("Working... Getting archived forum threads");
         handle_archived_forum_threads(&ctx).await;
         print_rainbow_text("Working... Getting active forum threads");

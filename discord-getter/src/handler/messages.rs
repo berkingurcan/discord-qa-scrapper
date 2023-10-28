@@ -51,7 +51,6 @@ pub async fn handle_chat(ctx: &Context) {
                 }
 
                 last_message_id = Some(messages[0].id);
-
                 for message in messages {
                     let data = (
                         message.id,

@@ -1,6 +1,9 @@
 use serenity::prelude::*;
 use serenity::model::id::{ChannelId, MessageId};
 use serenity::model::prelude::GuildId;
+use serenity::model::event::ThreadListSyncEvent;
+use serenity::client::EventHandler;
+use serenity::futures::StreamExt;
 use csv::Writer;
 
 use crate::constants::*;
@@ -95,8 +98,8 @@ pub async fn handle_active_forum_threads(ctx: &Context) {
     // ACTIVE THREAD 
     let forum_channel_id = ChannelId(FORUM_CHANNEL_ID);
     let guild_id = GuildId(GUILD_ID);
-
-    let _active_threads = forum_channel_id.get_active_threads(&ctx);
-    
-    
+    let mut active_threads = guild_id.get_active_threads(&ctx).await.unwrap();
+    println!("Active threads: {:?}", active_threads.threads.len());
+    let mut archived_threads = forum_channel_id.get_archived_public_threads(&ctx, None, None).await.unwrap();
+    println!("Archived threads: {:?}", archived_threads.threads.len());
 }

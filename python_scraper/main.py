@@ -73,13 +73,11 @@ async def on_ready():
                         ])
                     except Exception as e:
                         print(e)
-                    print(f"{message.author.name}: {message.content}")
         else:
             print(f"Thread with ID {thread_id} not found in guild {guild.name}")
 
-    for counter, thread_id in enumerate(archived_thread_ids):
-        thread = guild.get_thread(thread_id)
-
+    print("Getting archived threads")
+    for counter, thread in enumerate(archived_threads):
         if thread:
             with open(f"archived_threads/{counter}.csv", "w") as f:
                 message_writer = csv.writer(f)
@@ -111,7 +109,6 @@ async def on_ready():
                         ])
                     except Exception as e:
                         print(e)
-                    print(f"{message.author.name}: {message.content}")
         else:
             print(f"Thread with ID {thread_id} not found in guild {guild.name}")
 

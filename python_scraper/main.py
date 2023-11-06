@@ -29,7 +29,6 @@ async def on_ready():
     archived_threads: list[discord.Thread] = [ t async for t in channel_threads ]
 
     thread_ids = [id.id for id in threads]
-    archived_thread_ids = [id.id for id in archived_threads]
 
     os.makedirs('active_threads', exist_ok=True)
     os.makedirs('archived_threads', exist_ok=True)

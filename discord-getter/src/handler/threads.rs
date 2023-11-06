@@ -1,10 +1,11 @@
+use std::env;
+use dotenv::dotenv;
+use csv::Writer;
+
 use serenity::prelude::*;
 use serenity::model::id::{ChannelId, MessageId};
 use serenity::model::prelude::GuildId;
-use serenity::model::event::ThreadListSyncEvent;
-use serenity::client::EventHandler;
-use serenity::futures::StreamExt;
-use csv::Writer;
+use serenity::http::client::Http;
 
 use crate::constants::*;
 
@@ -24,82 +25,22 @@ pub async fn handle_archived_forum_threads(ctx: &Context) {
 
     // ARCHIVED THREADS
     let _archived_threads = forum_channel_id.get_archived_public_threads(&ctx, None, None);
-
-    match (_archived_threads).await {
-        Ok(data) => {
-            let requested_channel_id = Some(ChannelId(FORUM_CHANNEL_ID));
-            println!("Archived threads: {:?}", data.threads.len());
-            let archived_thread_ids: Vec<ChannelId> = data.threads.iter()
-                .filter(|channel| channel.parent_id == requested_channel_id)
-                .map(|channel| channel.id)
-                .collect();
-
-            for thread_id in archived_thread_ids {
-                let _thread_messages = thread_id.messages(&ctx, |retriever| retriever.after(MessageId(AFTER_MESSAGE_ID)).limit(LIMIT)).await;
-                let extracted_data: Result<Vec<_>, _> = _thread_messages.map(|messages| {
-                    messages.iter().map(|message| {
-                        (
-                            message.id,
-                            message.channel_id,
-                            message.author.name.clone(),
-                            message.content.clone(),
-                            message.timestamp,
-                            message.mentions.iter().map(|user| (user.id, user.name.clone())).collect::<Vec<_>>(),
-                            message.reactions.iter().map(|reaction| (reaction.count, reaction.reaction_type.clone())).collect::<Vec<_>>(),
-                            message.referenced_message.as_ref().map(|referenced_message| {
-                                (referenced_message.id, referenced_message.content.clone())
-                            }),
-                            message.member.as_ref().map(|memb| {
-                                (memb.nick.as_ref().map(String::to_string), memb.roles.iter().map(|x| x.to_string() + ",").collect::<String>())
-                            }),
-                        )
-                    }).collect()
-                });
-
-                let unwrapped_extracted_data = extracted_data.unwrap();
-                let mut writer = Writer::from_path(format!("./outputs/archived_threads/{}.csv", thread_id.to_string())).unwrap();
-
-                for data in unwrapped_extracted_data {
-                    writer.write_record(&[
-                        data.0.to_string(),
-                        data.1.to_string(),
-                        data.2.to_string(),
-                        data.3.to_string(),
-                        data.4.to_string(),
-                        data.5.iter()
-                            .map(|(id, name)| format!("{}: {}", id, name))
-                            .collect::<Vec<_>>()
-                            .join(",")
-                            .to_string(),
-                        data.6.iter()
-                            .map(|(count, reaction_type)| format!("{}, {}", count, reaction_type))
-                            .collect::<Vec<_>>()
-                            .join(",")
-                            .to_string(),
-                        data.7.iter()
-                            .map(|(id, content)| format!("{}: {}", id, content))
-                            .collect::<Vec<_>>()
-                            .join(",")
-                            .to_string(),
-                        data.8.iter()
-                            .map(|(nick, roles)| format!("{}: {}", nick.as_ref().map_or("NONE", |n| n), roles))
-                            .collect::<Vec<_>>()
-                            .join(",")
-                            .to_string(),
-                    ]);
-                }
-            }
-        },
-        Err(error) => println!("{:?}", error),
-    }
 }
 
 pub async fn handle_active_forum_threads(ctx: &Context) {
+    // Configure the client with your Discord bot token in the environment.
+    dotenv().ok();
+
+    // Configure the client with your Discord bot token in the environment.
+    let token = env::var("DISCORD_TOKEN").expect("Expected a token in the environment");
     // ACTIVE THREAD 
     let forum_channel_id = ChannelId(FORUM_CHANNEL_ID);
     let guild_id = GuildId(GUILD_ID);
-    let mut active_threads = guild_id.get_active_threads(&ctx).await.unwrap();
-    println!("Active threads: {:?}", active_threads.threads.len());
-    let mut archived_threads = forum_channel_id.get_archived_public_threads(&ctx, None, None).await.unwrap();
-    println!("Archived threads: {:?}", archived_threads.threads.len());
+
+    let http = Http::new(&token);
+    let mut active_threads = http.get_guild_active_threads(GUILD_ID).await.unwrap();
+    println!("New active threads: {:?}", active_threads.threads.len());
+    let mut archived_public_threads = http.get_channel_archived_public_threads(FORUM_CHANNEL_ID, None, None).await.unwrap();
+    println!("Archived threads: {:?}", archived_public_threads.threads.len());
+
 }

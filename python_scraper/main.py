@@ -9,7 +9,6 @@ intents = discord.Intents.default()
 intents.message_content = True
 client = discord.Client(intents=intents)
 
-CHANNEL_ID = 915745847692636181
 FORUM_CHANNEL_ID = 1047214314349658172
 GUILD_ID = 484437221055922177
 

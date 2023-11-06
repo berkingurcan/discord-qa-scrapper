@@ -22,57 +22,29 @@ async def on_ready():
         print('Guild or Channel not found')
         return
     threads = await guild.active_threads()
-    print("threads")
-    print(len(threads))
-    print(threads[0])
     threads2 = guild.threads
-    print("threads")
-    print(len(threads2))
-    print(threads2[0])
     channel_threads = channel.threads
-    print("channel_threads")
-    print(len(channel_threads))
-    print(channel_threads[0])
     channel_threads2: AsyncIterator = channel.archived_threads(limit=None)
     archived_threads: list[discord.Thread] = [ t async for t in channel_threads2 ]
-    print("archived_threads")
-    print(len(archived_threads))
-    print(archived_threads[0])
     # 4 sets for our 4 different thread types, than calculate intersection between all of them
     # 1. active threads
     # 2. guild threads
     # 3. channel threads
     # 4. archived threads
-    print("calculating intersections")
     active_threads_set = {t.id for t in threads}
-    print("active_threads_set is ready")
     guild_threads_set = {t.id for t in threads2}
-    print("guild_threads_set is ready")
     channel_threads_set = {t.id for t in channel_threads}
-    print("channel_threads_set is ready")
     archived_threads_set = {t.id for t in archived_threads}
-    print("archived_threads_set is ready")
-    print("cardinality of intersection of active and guild")
-    print(len(active_threads_set.intersection(guild_threads_set)))
-    print("cardinality of intersection of active and channel")
-    print(len(active_threads_set.intersection(channel_threads_set)))
-    print("cardinality of intersection of active and archived")
-    print(len(active_threads_set.intersection(archived_threads_set)))
-    print("cardinality of intersection of guild and channel")
-    print(len(guild_threads_set.intersection(channel_threads_set)))
-    print("cardinality of intersection of guild and archived")
-    print(len(guild_threads_set.intersection(archived_threads_set)))
-    print("cardinality of intersection of channel and archived")
-    print(len(channel_threads_set.intersection(archived_threads_set)))
-    # append  all active threads to the file threads.txt, than append archived threads to the file
+
     with open("threads.txt", "a+") as f:
         for t in threads:
             f.write(repr(t) + "\n")
         for t in archived_threads:
             f.write(repr(t) + "\n")
-    print("done")
+
     os.makedirs("threads", exist_ok=True)
-    for i in range(10):
+
+    for i in range(len(active_threads_set)):
         with open(f"threads/{i}.csv", "w+") as f:
             message_writer = csv.writer(f)
             message_writer.writerow([
@@ -101,7 +73,16 @@ async def on_ready():
                     message.author
                 ])
 
+    print("done")
+        
+
 
 # Run the client
-cor = client.start('MTE1MzM0NTA4NTI5MTkwOTEyMQ.GxwExR.IrdkFOPUiRcVafB_ymZOMcBoNPCbZ4GpA49xRg')
+from dotenv import load_dotenv, find_dotenv
+
+_ = load_dotenv(find_dotenv(), override=True)
+discord_token = os.getenv('DISCORD_TOKEN')
+
+cor = client.start(discord_token)
+
 asyncio.get_event_loop().run_until_complete(cor)

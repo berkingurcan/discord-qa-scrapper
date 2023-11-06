@@ -39,43 +39,8 @@ async def on_ready():
         thread = guild.get_thread(thread_id)
                 
         if thread:
-            with open(f"active_threads/{counter}.csv", "w+") as f:
-                message_writer = csv.writer(f)
-                message_writer.writerow([
-                    "id",
-                    "channel_id",
-                    "author",
-                    "content",
-                    "timestamp",
-                    "mentions",
-                    "reactions",
-                    "referenced_message",
-                    "member"
-                ])
-            print(f"Retrieving messages for thread: {thread.name}")
-            async for message in thread.history(limit=100):
-                message_writer.writerow([
-                    message.id,
-                    message.channel.id,
-                    message.author.id,
-                    message.content,
-                    message.created_at,
-                    message.mentions,
-                    message.reactions,
-                    message.reference.message_id if message.reference is not None else None,
-                    message.author
-                ])
-                print(f"{message.author.name}: {message.content}")
-        else:
-            print(f"Thread with ID {thread_id} not found in guild {guild.name}")
-
-    for counter, thread_id in enumerate(archived_thread_ids):
-        thread = guild.get_thread(thread_id)
-
-        if thread:
-            print(f"Retrieving messages for thread: {thread.name}")
-            async for message in thread.history(limit=100):
-                with open(f"archived_threads/{counter}.csv", "w+") as f:
+            with open(f"active_threads/{counter}.csv", "w", newline='') as f:
+                try:
                     message_writer = csv.writer(f)
                     message_writer.writerow([
                         "id",
@@ -88,18 +53,65 @@ async def on_ready():
                         "referenced_message",
                         "member"
                     ])
+                except:
+                    print("error")
+
+                print(f"Retrieving messages for thread: {thread.name}")
+                async for message in thread.history(limit=100):
+                    try:
+                        message_writer = csv.writer(f)
+                        message_writer.writerow([
+                            message.id,
+                            message.channel.id,
+                            message.author.id,
+                            message.content,
+                            message.created_at,
+                            message.mentions,
+                            message.reactions,
+                            message.reference.message_id if message.reference is not None else None,
+                            message.author
+                        ])
+                    except Exception as e:
+                        print(e)
+                    print(f"{message.author.name}: {message.content}")
+        else:
+            print(f"Thread with ID {thread_id} not found in guild {guild.name}")
+
+    for counter, thread_id in enumerate(archived_thread_ids):
+        thread = guild.get_thread(thread_id)
+
+        if thread:
+            with open(f"archived_threads/{counter}.csv", "w") as f:
+                message_writer = csv.writer(f)
                 message_writer.writerow([
-                    message.id,
-                    message.channel.id,
-                    message.author.id,
-                    message.content,
-                    message.created_at,
-                    message.mentions,
-                    message.reactions,
-                    message.reference.message_id if message.reference is not None else None,
-                    message.author
+                    "id",
+                    "channel_id",
+                    "author",
+                    "content",
+                    "timestamp",
+                    "mentions",
+                    "reactions",
+                    "referenced_message",
+                    "member"
                 ])
-                print(f"{message.author.name}: {message.content}")
+
+                print(f"Retrieving messages for thread: {thread.name}")
+                async for message in thread.history(limit=100):
+                    try:
+                        message_writer.writerow([
+                            message.id,
+                            message.channel.id,
+                            message.author.id,
+                            message.content,
+                            message.created_at,
+                            message.mentions,
+                            message.reactions,
+                            message.reference.message_id if message.reference is not None else None,
+                            message.author
+                        ])
+                    except Exception as e:
+                        print(e)
+                    print(f"{message.author.name}: {message.content}")
         else:
             print(f"Thread with ID {thread_id} not found in guild {guild.name}")
 

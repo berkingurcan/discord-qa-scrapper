@@ -41,6 +41,7 @@ async def on_ready():
                 try:
                     message_writer = csv.writer(f)
                     message_writer.writerow([
+                        "thread_name",
                         "id",
                         "channel_id",
                         "author",
@@ -59,6 +60,7 @@ async def on_ready():
                     try:
                         message_writer = csv.writer(f)
                         message_writer.writerow([
+                            thread.name,
                             message.id,
                             message.channel.id,
                             message.author.id,
@@ -80,6 +82,7 @@ async def on_ready():
             with open(f"archived_threads/{counter}.csv", "w") as f:
                 message_writer = csv.writer(f)
                 message_writer.writerow([
+                    "thread_name",
                     "id",
                     "channel_id",
                     "author",
@@ -95,6 +98,7 @@ async def on_ready():
                 async for message in thread.history(limit=100):
                     try:
                         message_writer.writerow([
+                            thread.name,
                             message.id,
                             message.channel.id,
                             message.author.id,

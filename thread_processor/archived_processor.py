@@ -56,13 +56,36 @@ PROMPT = """
 You are a QA Forum data processor.
 It is thread datas from a Discord QA Forum Channel.
 
-It is a name of the thread and the list of messages in a discord channel, the first message is the probably question and the rest are probably answers.
-All messages are from the same thread in a forum channel. Read all the messages and infer the full question and answer pair by considering conditions below:
+You have data in this format:
+[
+    "Thread Name",
+    {
+        "Author": "Question"
+    },
+    [
+        {
+            "Author": "Answer"
+        },
+        {
+            "Author": "Answer"
+        },
+        {
+            "Author": "Answer"
+        }
+        ...
+    ]
+]
 
+First is the name of the thread.
+Second(inside the curly bracket) is the question.
+Others are answers to the question.
+
+All messages are from the same thread in a forum channel. Read all the messages, infer the answer and create question and answer pair by considering conditions below:
+
+Question need to be complete and include thread name.
 If question or answer includes code blocks, include code blocks as well.
 Include thread name and full question in question field completely with also code blocks if exists.
-Please do not summarize the answer. Explain the answer as detailed as possible with all necessary information.
-Find the correct answer for the question and return it as the final result.
+Please do not summarize the answer. Evaulate and explain the answer as detailed as possible with all necessary information which is also has code blocks.
 
 Infer, evaulate and create Full Question: Detailed Answer Pair
 Return a valid JSON as the final result, if there is no answer in the messages, return null. Thank you is not an answer, this data will be used for training so please remove unnecessary data.
@@ -115,4 +138,4 @@ for i in range(length_of_folder):
 
     print(f"Saving {i}...")
     with open(file_path, 'w') as file:
-        json.dump(result, file)
+        file.write(result)

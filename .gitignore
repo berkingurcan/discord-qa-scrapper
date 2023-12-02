@@ -21,5 +21,7 @@ output.csv
 discord-getter/output.csv
 .DS_Store
 
+*archived_threads/
+*active_threads/
 threads/
 chat_outputs/

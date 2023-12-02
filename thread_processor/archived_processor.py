@@ -1,5 +1,9 @@
 import json
+import os
+
 import pandas as pd
+
+os.mkdir("archived_threads/textfiles")
 
 def export_json(number_of_csv):
     df = pd.read_csv(f"archived_threads/{number_of_csv}.csv")
@@ -16,7 +20,7 @@ def export_json(number_of_csv):
         answers
     ]
 
-    file_path = f"archived_threads/processed{number_of_csv}.txt"
+    file_path = f"archived_threads/textfiles/processed{number_of_csv}.txt"
     json_data = json.dumps(data, indent=2)
 
     with open(file_path, 'w') as file:

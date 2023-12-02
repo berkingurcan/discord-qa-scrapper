@@ -57,8 +57,9 @@ You are a QA Forum data processor.
 It is thread datas from a Discord QA Forum Channel.
 
 It is a name of the thread and the list of messages in a discord channel, the first message is the probably question and the rest are probably answers.
-All messages are from the same thread in a forum channel. Read all the messages and infer the full question and answer pair.
-If question or answer includes code blocks, read and evaulate the code blocks as well.
+All messages are from the same thread in a forum channel. Read all the messages and infer the full question and answer pair by considering conditions below:
+
+If question or answer includes code blocks, include code blocks as well.
 Include thread name and full question in question field completely with also code blocks if exists.
 Please do not summarize the answer. Explain the answer as detailed as possible with all necessary information.
 Find the correct answer for the question and return it as the final result.
@@ -82,6 +83,7 @@ def process_txt(number_of_txt):
     response = client.chat.completions.create(
         model="gpt-4-1106-preview",
         response_format={ "type": "json_object" },
+        temperature=0.9,
         messages=[
             {
                 "role": "system",
@@ -98,5 +100,19 @@ def process_txt(number_of_txt):
     print(result)
 
     return result
+
+def count_files_in_folder(directory):
+    return len([name for name in os.listdir(directory) if os.path.isfile(os.path.join(directory, name))])
+
+folder_path = "archived_threads/textfiles"
+length_of_folder = count_files_in_folder(folder_path)
     
-res = process_txt(86)
+for i in range(length_of_folder):
+    print(f"Processing {i}...")
+    result = process_txt(i)
+
+    file_path = f"archived_threads/results/archived-thread-{i}.json"
+
+    print(f"Saving {i}...")
+    with open(file_path, 'w') as file:
+        json.dump(result, file)

@@ -45,11 +45,11 @@ def export_json(number_of_csv):
     
 
 
-""" os.mkdir("archived_threads/textfiles")
+os.mkdir("archived_threads/textfiles")
 os.mkdir("archived_threads/results")
 
 for i in range(402):
-    export_json(i) """
+    export_json(i)
 
 
 PROMPT = """
@@ -131,11 +131,24 @@ folder_path = "archived_threads/textfiles"
 length_of_folder = count_files_in_folder(folder_path)
     
 for i in range(length_of_folder):
+    file_path = f"archived_threads/textfiles/processed{i}.txt"
+    with open(file_path, 'r') as file:
+        contents = file.read()
+
+    contents = json.loads(contents)
+    thread_name = contents[0]
+    question = contents[1]
+
+    full_question = {"full_question": f"{thread_name}\n{question}"}
+
     print(f"Processing {i}...")
     result = process_txt(i)
+
+    result = json.loads(result)
+    result.update(full_question)
 
     file_path = f"archived_threads/results/archived-thread-{i}.json"
 
     print(f"Saving {i}...")
     with open(file_path, 'w') as file:
-        file.write(result)
+        file.write(json.dumps(result, indent=4))

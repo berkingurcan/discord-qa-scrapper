@@ -1,9 +1,10 @@
 import os
 import time
 import logging
-import pandas as pd
 import openai
 import dotenv
+import pandas as pd
+
 dotenv.load_dotenv()
 
 logging.basicConfig(level=logging.INFO)
@@ -12,7 +13,6 @@ logger = logging.getLogger(__name__)
 client = openai.OpenAI(
     api_key="",
 )
-
 
 def process_csv(path):
     df = pd.read_csv(path)
@@ -77,19 +77,24 @@ if __name__ == "__main__":
         path = f"Archive/active_threads/{path}"
         logger.info(f"Processing %s", path)
         processed_path = process_csv(path)
+
         if processed_path is None:
             logger.info(f"Skipping %s", path)
             continue
+
         logger.info(f"Post Processing %s", processed_path)
         post_process(processed_path)
         logger.info(f"Processed %s", path)
+
     for path in os.listdir("Archive/archived_threads"):
         path = f"Archive/archived_threads/{path}"
         logger.info(f"Processing %s", path)
         processed_path = process_csv(path)
+
         if processed_path is None:
             logger.info(f"Skipping %s", path)
             continue
+        
         logger.info(f"Post Processing %s", processed_path)
         post_process(processed_path)
         logger.info(f"Processed %s", path)

@@ -13,9 +13,15 @@ client = openai.OpenAI(
 )
 
 def export_json(number_of_csv):
-    df = pd.read_csv(f"archived_threads/{number_of_csv}.csv")
+    if not os.path.exists(f"active_threads/{number_of_csv}.csv"):
+        return
+    
+    df = pd.read_csv(f"active_threads/{number_of_csv}.csv")
     df = df.iloc[::-1]
 
+    if df.empty:
+        return
+    
     thread_name = df.iloc[0]['thread_name']
     question = {str(df.iloc[0]['author']): df.iloc[0]['content'] }
 
@@ -29,7 +35,7 @@ def export_json(number_of_csv):
         answers
     ]
 
-    file_path = f"archived_threads/textfiles/processed{number_of_csv}.txt"
+    file_path = f"active_threads/textfiles/processed{number_of_csv}.txt"
     json_data = json.dumps(data, indent=2)
 
     with open(file_path, 'w') as file:
@@ -43,15 +49,13 @@ def export_json(number_of_csv):
     except Exception as e:
         print(f"An error occurred: {e}")
     
-
-
-os.mkdir("archived_threads/textfiles")
-os.mkdir("archived_threads/results")
+os.mkdir("active_threads/textfiles")
+os.mkdir("active_threads/results")
 
 def count_files_in_folder(directory):
     return len([name for name in os.listdir(directory) if os.path.isfile(os.path.join(directory, name))])
 
-folder_path = "archived_threads"
+folder_path = "active_threads"
 length_of_folder = count_files_in_folder(folder_path)
 
 for i in range(length_of_folder):
@@ -105,7 +109,11 @@ Give me a JSON file with the following format in markdown format:
 """
 
 def process_txt(number_of_txt):
-    file_path = f"archived_threads/textfiles/processed{number_of_txt}.txt"
+    file_path = f"active_threads/textfiles/processed{number_of_txt}.txt"
+
+    if not os.path.exists(file_path):
+        return
+    
     with open(file_path, 'r') as file:
         contents = file.read()
 
@@ -133,11 +141,14 @@ def process_txt(number_of_txt):
 def count_files_in_folder(directory):
     return len([name for name in os.listdir(directory) if os.path.isfile(os.path.join(directory, name))])
 
-folder_path = "archived_threads/textfiles"
+folder_path = "active_threads/textfiles"
 length_of_folder = count_files_in_folder(folder_path)
     
 for i in range(length_of_folder):
-    file_path = f"archived_threads/textfiles/processed{i}.txt"
+    if not os.path.exists(f"active_threads/textfiles/processed{i}.txt"):
+        continue
+    
+    file_path = f"active_threads/textfiles/processed{i}.txt"
     with open(file_path, 'r') as file:
         contents = file.read()
 
@@ -153,7 +164,7 @@ for i in range(length_of_folder):
     result = json.loads(result)
     result.update(full_question)
 
-    file_path = f"archived_threads/results/archived-thread-{i}.json"
+    file_path = f"active_threads/results/active-thread-{i}.json"
 
     print(f"Saving {i}...")
     with open(file_path, 'w') as file:

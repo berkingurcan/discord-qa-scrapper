@@ -158,7 +158,7 @@ for filed in files:
     result = json.loads(result)
     result.update(full_question)
 
-    file_path = f"chat_archived_threads/results/active-thread-{filed[:-4]}.json"
+    file_path = f"chat_archived_threads/results/archived-thread-{filed[:-4]}.json"
 
     print(f"Saving {filed}...")
     with open(file_path, 'w') as file:

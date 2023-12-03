@@ -19,9 +19,9 @@ for index, row in df.iterrows():
 
     file_path = 'assistant_processed_chat/results/' + str(index) + '.json'
     json_data = json.dumps({
-            "question": question,
-            "answer": answer
-        }, indent=2)
+        "question": question,
+        "answer": answer
+    }, indent=2)
     
     with open(file_path, 'w') as file:
         file.write(json_data)

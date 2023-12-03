@@ -23,5 +23,6 @@ discord-getter/output.csv
 
 *archived_threads/
 *active_threads/
+assistant_processed_chat/
 threads/
 chat_outputs/

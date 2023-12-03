@@ -48,7 +48,7 @@ def export_json(number_of_csv):
     if df.empty:
         return
     
-    question = {str(df.iloc[0]['author']): df.iloc[0]['Mentions'] }
+    question = {str("Question"): df.iloc[0]['Mentions'] }
 
     answers = []
     for i in range(1, len(df)):

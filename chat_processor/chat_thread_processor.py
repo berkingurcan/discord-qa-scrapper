@@ -69,3 +69,97 @@ def export_json(number_of_csv):
 for file in files:
     print(f"Processing {file}")
     export_json(file)
+
+PROMPT = """
+You are a QA Forum data processor.
+It is thread datas from a Discord QA Forum Channel.
+
+You have data in this format:
+[
+    {
+        "Author": "Question"
+    },
+    [
+        {
+            "Author": "Answer"
+        },
+        {
+            "Author": "Answer"
+        },
+        {
+            "Author": "Answer"
+        }
+        ...
+    ]
+]
+
+First is the question.
+Others are answers to the question.
+
+All messages are from the same thread in a forum channel. Read all the messages, infer the answer and create question and answer pair by considering conditions below:
+
+If question or answer includes code blocks, include code blocks as well.
+Include full question in question field completely with also code blocks if exists.
+Please do not summarize the answer. Evaulate and explain the answer as detailed as possible with all necessary information which is also has code blocks.
+
+Infer, evaulate and create Full Question: Detailed Answer Pair
+Return a valid JSON as the final result, if there is no answer in the messages, return null. Thank you is not an answer, this data will be used for training so please remove unnecessary data.
+Give me a JSON file with the following format in markdown format:
+```json
+{
+"question": "The question",
+"answer": "The answer" or None
+}
+```
+"""
+
+def process_txt(number_of_txt):
+    file_path = number_of_txt
+
+    if not os.path.exists(file_path):
+        return
+    
+    with open(file_path, 'r') as file:
+        contents = file.read()
+
+    response = client.chat.completions.create(
+        model="gpt-4-1106-preview",
+        response_format={ "type": "json_object" },
+        temperature=0.9,
+        messages=[
+            {
+                "role": "system",
+                "content": PROMPT
+            },
+            {
+                "role": "user",
+                "content": str(contents)
+            }
+        ]
+    )
+
+    result = response.choices[0].message.content
+    print(result)
+
+    return result
+
+for filed in files:
+    file_path = f"chat_archived_threads/textfiles/processed{filed[:-4]}.txt"
+    with open(file_path, 'r') as file:
+        contents = file.read()
+
+    contents = json.loads(contents)
+    question = contents[0]
+    full_question = {"full_question": f"{question}"}
+
+    print(f"Processing {file_path}...")
+    result = process_txt(file_path)
+
+    result = json.loads(result)
+    result.update(full_question)
+
+    file_path = f"chat_archived_threads/results/archived-thread-{filed[:-4]}.json"
+
+    print(f"Saving {filed}...")
+    with open(file_path, 'w') as file:
+        file.write(json.dumps(result, indent=3))

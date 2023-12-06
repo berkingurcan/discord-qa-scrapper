@@ -1,6 +1,7 @@
 import json
 import os
 import openai
+import time
 import pandas as pd
 
 from dotenv import load_dotenv, find_dotenv
@@ -124,7 +125,7 @@ def process_txt(number_of_txt):
             }
         ]
     )
-
+    print(response)
     result = response.choices[0].message.content
     print(result)
 
@@ -150,6 +151,9 @@ for i in range(length_of_folder):
     print(f"Processing {i}...")
     result = process_txt(i)
 
+    if result is None:
+        continue
+
     result = json.loads(result)
     result.update(full_question)
 
@@ -158,3 +162,5 @@ for i in range(length_of_folder):
     print(f"Saving {i}...")
     with open(file_path, 'w') as file:
         file.write(json.dumps(result, indent=4))
+
+    time.sleep(7)

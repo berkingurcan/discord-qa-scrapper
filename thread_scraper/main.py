@@ -1,8 +1,9 @@
-from typing import AsyncIterator
 import discord
 import asyncio
 import os
 import csv
+
+from typing import AsyncIterator
 
 # Create a new instance of the Discord client
 intents = discord.Intents.default()

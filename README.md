@@ -62,7 +62,10 @@ DISCORD_TOKEN=XXXXXX
 3. run ```python main.py```
 4. It will export all threads from the forum channel as csv files.
 
-## Chat & Thread Processor
+## Chat & Thread Processors
+
+## Warning
+⚠️ **Important:** Currently having OPENAI API Hanging issue and processors are depend on the API's performance!
 
 These processors use OPENAI API with **gpt-4-1106-preview** model to process csv files. They firstly exports data as txt file for make it easier to process the data for AI. After that, AI Model gets the data and exports as json files.
 
@@ -79,18 +82,22 @@ Chat datas(batched csv files from the discord-getter) were manually uploaded and
 
 #### Archived Chat Threads
 
-They are threads in the chat channel. So you should copy and paste them into a folder named ```chat_archived_threads```. They have unique names which are the ids of threads. But the code will handle it.
+They are threads in the chat channel. 
 
-So, you can run ```python chat_thread_processor.py```.
+- So you should copy and paste them into a folder named ```chat_archived_threads```. They have unique names which are the ids of threads. But the code will handle it.
+
+- You can run ```python chat_thread_processor.py```.
 
 
 ### Thread Processor
 
 First and foremost, create virtual environment and activate it.
 
+- Create ```.env``` file and add your OPEN AI API KEY as in the example env.
 
+- Copy and paste folders ```active_threads``` and ```archived_threads``` which you got from the *thread_scraper* under the thread_processor.
 
-
+- You can run these scripts and it will process datas automatically.
 
 
 

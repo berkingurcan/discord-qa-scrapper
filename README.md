@@ -64,7 +64,7 @@ DISCORD_TOKEN=XXXXXX
 
 ## Chat & Thread Processors
 
-## Warning
+### Warning
 ⚠️ **Important:** Currently having OPENAI API Hanging issue and processors are depend on the API's performance!
 
 These processors use OPENAI API with **gpt-4-1106-preview** model to process csv files. They firstly exports data as txt file for make it easier to process the data for AI. After that, AI Model gets the data and exports as json files.

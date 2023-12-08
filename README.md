@@ -50,3 +50,47 @@ termion = "2.0.1"
 8. So, your bot is ready. Send a message to the related Discord Channel and trigger your bot.
 9. You can see your csv datas in the ```outputs``` folder.
 
+## Thread Scraper
+
+1. Install Requirements:
+    - discord
+    - asyncio
+2. Create .env file and add your bot's discord token:
+```
+DISCORD_TOKEN=XXXXXX
+```
+3. run ```python main.py```
+4. It will export all threads from the forum channel as csv files.
+
+## Chat & Thread Processor
+
+These processors use OPENAI API with **gpt-4-1106-preview** model to process csv files. They firstly exports data as txt file for make it easier to process the data for AI. After that, AI Model gets the data and exports as json files.
+
+### Chat Processor
+
+#### Chat Data
+First and foremost, create virtual environment and activate it.
+
+Chat datas(batched csv files from the discord-getter) were manually uploaded and processed by OPEN AI Assistant. You need to do that manually for now until the OpenAI Assistant works stable and consistently. You can find the related prompts and codes in the notebooks folder. 
+
+- Firstly, create ```assistant_processed_chat```folder and you must copy and paste assistant processed data to the folder named like sequentally: _*chat1.csv*_, _*chat2.csv*_, _*chat3.csv*_
+
+- Then you can run the processor like ```python processor.py```.
+
+#### Archived Chat Threads
+
+They are threads in the chat channel. So you should copy and paste them into a folder named ```chat_archived_threads```. They have unique names which are the ids of threads. But the code will handle it.
+
+So, you can run ```python chat_thread_processor.py```.
+
+
+### Thread Processor
+
+First and foremost, create virtual environment and activate it.
+
+
+
+
+
+
+

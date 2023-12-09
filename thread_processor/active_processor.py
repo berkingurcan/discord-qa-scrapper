@@ -119,9 +119,9 @@ def process_txt(number_of_txt):
         contents = file.read()
 
     response = client.chat.completions.create(
-        model="gpt-4-1106-preview",
+        model="gpt-3.5-turbo-1106",
         response_format={ "type": "json_object" },
-        temperature=0.9,
+        temperature=0.8,
         messages=[
             {
                 "role": "system",
@@ -174,4 +174,4 @@ for i in range(length_of_folder):
     with open(file_path, 'w') as file:
         file.write(json.dumps(result, indent=4))
 
-    time.sleep(7)
+    time.sleep(3)

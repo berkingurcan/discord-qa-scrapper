@@ -123,7 +123,7 @@ def process_txt(number_of_txt):
         contents = file.read()
 
     response = client.chat.completions.create(
-        model="gpt-4-1106-preview",
+        model="gpt-3.5-turbo-1106",
         response_format={ "type": "json_object" },
         temperature=0.9,
         messages=[

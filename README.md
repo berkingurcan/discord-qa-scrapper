@@ -26,7 +26,7 @@ It downloads message history and threads as batches of csv files.
 
 ### Setup:
 1. Clone the repository
-2. ```cd discord-getter````
+2. ```cd discord-getter```
 3. Create .env file and paste your DISCORD TOKEN which belongs to your Discord Bot
 4. Also the bot needs to be in the Server and Channel and has access to read message history of related channel.
 5. Go into the src/constants.rs and set your id's like this:

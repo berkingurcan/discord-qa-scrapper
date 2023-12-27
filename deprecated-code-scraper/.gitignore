@@ -20,7 +20,6 @@ Cargo.lock
 output.csv
 *.csv
 *.txt
-*.json
 
 discord-getter/output.csv
 .DS_Store
